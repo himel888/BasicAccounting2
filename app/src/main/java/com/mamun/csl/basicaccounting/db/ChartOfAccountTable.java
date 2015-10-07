@@ -1,17 +1,19 @@
 package com.mamun.csl.basicaccounting.db;
 
+import java.io.Serializable;
+
 /**
  * Created by mamun on 8/12/15.
  */
-public class ChartOfAccountTable {
+public class ChartOfAccountTable implements Serializable {
 
-    private int table1Pid ;
-    private int table1Pid_parent;
-    private String table1AccountName;
-    private int table1AccountId;
-    private String table1AccountType;
-    private String table1AccountGroup;
-    private String table1Status;
+    private  int table1Pid ;
+    private  int table1Pid_parent;
+    private  String table1AccountName;
+    private  int table1AccountId;
+    private  String table1AccountType;
+    private  String table1AccountGroup;
+    private  String table1Status;
 
 
 
@@ -82,5 +84,18 @@ public class ChartOfAccountTable {
 
     public void setTable1Status(String table1Status) {
         this.table1Status = table1Status;
+    }
+
+    @Override
+    public String toString() {
+        return "ChartOfAccountTable{" +
+                "table1Pid=" + table1Pid +
+                ", table1Pid_parent=" + table1Pid_parent +
+                ", table1AccountName='" + table1AccountName + '\'' +
+                ", table1AccountId=" + table1AccountId +
+                ", table1AccountType='" + table1AccountType + '\'' +
+                ", table1AccountGroup='" + table1AccountGroup + '\'' +
+                ", table1Status='" + table1Status + '\'' +
+                '}';
     }
 }

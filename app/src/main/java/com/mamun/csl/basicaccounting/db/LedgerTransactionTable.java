@@ -1,5 +1,7 @@
 package com.mamun.csl.basicaccounting.db;
 
+
+
 /**
  * Created by mamun on 8/12/15.
  */
@@ -7,7 +9,7 @@ public class LedgerTransactionTable {
 
 
         private int table2Pid;
-        private int table2PidParent;
+        private int table2PidPair;
         private String table2TransactionDate;
         private int table2AccFrom;
         private int table2AccTo;
@@ -32,12 +34,12 @@ public class LedgerTransactionTable {
             this.table2Pid = table2Pid;
         }
 
-        public int getTable2PidParent() {
-            return table2PidParent;
+        public int getTable2PidPair() {
+            return table2PidPair;
         }
 
-        public void setTable2PidParent(int table2PidParent) {
-            this.table2PidParent = table2PidParent;
+        public void setTable2PidPair(int table2PidParent) {
+            this.table2PidPair = table2PidParent;
         }
 
         public String getTable2TransactionDate() {

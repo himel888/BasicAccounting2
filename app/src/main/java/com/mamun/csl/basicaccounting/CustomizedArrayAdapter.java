@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by csl on 8/24/15.
+ * Created by Mamun on 8/24/15.
  */
-public class CustomizedArrayAdapter extends ArrayAdapter<ChartOfAccountTable> {
+public class  CustomizedArrayAdapter extends ArrayAdapter<ChartOfAccountTable> {
 
 
     Activity con;

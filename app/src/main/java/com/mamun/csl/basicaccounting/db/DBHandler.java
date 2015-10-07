@@ -26,7 +26,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     public static final String table2Pid = "p_id";
-    public static final String table2PidParent = "pid_parent";
+    public static final String table2PidPair = "pid_pair";
     public static final String table2TransactionDate = "transaction_date";
     public static final String table2AccFrom = "acc_from";
     public static final String table2AccTo = "acc_to";
@@ -50,10 +50,10 @@ public class DBHandler extends SQLiteOpenHelper {
             ");";
 
     private String createTable2 = "create table " + table2 +"(" +
-            table2Pid + " integer," +
-            table2PidParent + " integer," +
+            table2Pid + " integer primary key," +
+            table2PidPair + " integer," +
             table2TransactionDate + " text," +
-            table2AccFrom + "integer," +
+            table2AccFrom + " integer," +
             table2AccTo + " integer," +
             table2AmountDr + " integer," +
             table2AmountCr + " integer," +
@@ -75,7 +75,6 @@ public class DBHandler extends SQLiteOpenHelper {
         //Creating table if not exist
         db.execSQL(createTable1);
         db.execSQL(createTable2);
-
     }
 
     @Override

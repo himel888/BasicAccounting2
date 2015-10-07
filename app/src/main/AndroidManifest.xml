@@ -28,6 +28,18 @@
             android:name=".ChartOfAccountUpdate"
             android:label="@string/title_activity_chart_of_account_update" >
         </activity>
+        <activity
+            android:name=".VoucherEntry"
+            android:label="@string/title_activity_voucher_entry" >
+        </activity>
+        <activity
+            android:name=".LedgerReport"
+            android:label="@string/title_activity_ledger_report"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mamun.csl.basicaccounting.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

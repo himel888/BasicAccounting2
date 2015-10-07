@@ -24,11 +24,32 @@ public class MainActivity extends AppCompatActivity {
         btnChartOfaccount.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,ChartOfAccount.class);
+                Intent i = new Intent(MainActivity.this, ChartOfAccount.class);
                 startActivity(i);
             }
         });
+
+
+        Button btnVoucherEntry = (Button) findViewById(R.id.btnVoucherEntry);
+        btnVoucherEntry.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),VoucherEntry.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button btnLedgerReport = (Button) findViewById(R.id.btnLedgerReport);
+        btnLedgerReport.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(getApplicationContext(),ChartOfAccount.class);
+            startActivity(intent);
             return true;
         }
 

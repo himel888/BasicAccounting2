@@ -97,9 +97,9 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
                 ChartOfAccountCRUD crud = new ChartOfAccountCRUD(getApplicationContext());
 
                 if (chkStatus.isChecked()) {
-                    status = "A";
+                    status = "Active";
                 } else
-                    status = "I";
+                    status = "Inactive";
 
 
                 if (spnParent.getSelectedItem().toString().equals("None")) {
@@ -118,7 +118,7 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
                     abc.setTable1AccountType(spntype.getSelectedItem().toString());
                     abc.setTable1AccountGroup(spnGroup.getSelectedItem().toString());
                     abc.setTable1Status(status);
-                    Toast.makeText(getApplicationContext(), abc.toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), abc.toString(), Toast.LENGTH_LONG).show();
 
                 } catch (Exception e) {
                 }
@@ -128,8 +128,6 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
                 startActivity(intent);
-
-
             }
         });
 
