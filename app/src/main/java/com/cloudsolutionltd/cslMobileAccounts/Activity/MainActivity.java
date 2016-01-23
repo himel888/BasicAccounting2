@@ -127,8 +127,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         cslWebContent = (WebView) findViewById(R.id.CSLWebContent);
 
     }
@@ -162,11 +160,12 @@ public class MainActivity extends AppCompatActivity {
 //                conn.setRequestMethod("GET");
 
 
-            // Instantiate the RequestQueue.
             adView = (AdView) findViewById(R.id.adView);
             adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
             adView.setVisibility(View.VISIBLE);
+
+            // Instantiate the RequestQueue.
             RequestQueue queue = Volley.newRequestQueue(this);
             String url ="http://www.cloudsolutionltd.com/mob/home_text.html";
 
