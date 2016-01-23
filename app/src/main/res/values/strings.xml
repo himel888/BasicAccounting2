@@ -1,12 +1,52 @@
 <resources>
-    <string name="app_name">Basic Accounting</string>
+    <string name="app_name">CSL Mobile Accounts</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Chart of Account</string>
-    <string name="title_activity_chart_of_account_input_form">input</string>
-    <string name="title_activity_chart_of_account">ChartOfAccount</string>
+    <string name="chartOfAccount">Chart of Account</string>
+    <string name="title_activity_chart_of_account_input_form">Add Account</string>
+    <string name="title_activity_chart_of_account">Chart of Account</string>
     <string name="initial_item">None</string>
-    <string name="title_activity_chart_of_account_update">ChartOfAccountUpdate</string>
+    <string name="title_activity_chart_of_account_update">Update Account</string>
     <string name="title_activity_voucher_entry">Voucher Entry</string>
-    <string name="title_activity_ledger_report">Ledger</string>
+    <string name="title_activity_ledger_report">Ledger Report</string>
+    <string name="title_activity_all_transaction">All Transaction</string>
+    <string name="title_activity_transaction_details">Transaction Details</string>
+    <string name="title_activity_income_expense">Income/Expense</string>
+    <string name="title_activity_profit_loss">Profit/Loss</string>
+    <string name="title_activity_Balance_sheet">Balance Sheet</string>
+    <string name="btnSearch">Search</string>
+    <string name="btnSave">Save</string>
+    <string name="title_activity_csl_home">Cloud Solution ltd</string>
+    <string name="Update">update</string>
+    <string name="Delete">delete</string>
+    <string name="csl_web_link">www.cloud-aps.com
+        <a href="www.cloud-aps.com" target="_top"></a></string>
+    <string name="help">Help</string>
+    <string name="voucher_entry_help">
+            1. Choose account from which are basically CR account - AccFrom (CR):\n\n
+        2. Choose account to which are DR account - AccTo (DR):\n\n
+        3. Fill all other information about your respective transaction.\n\n
+        4. Tap save to save your transaction.\n\n
+            You can create, update and delete account head from chart of account section which are located
+        in the settings menu section top right of your application.</string>
+
+    <string name="all_transaction_help">1. Choose From date.\n2. Choose to date.\n3. Tap search button.\n\n
+            # After taping search button You will see all transaction between from date and to date.\n</string>
+    <string name="drawer_open">Drawer opened</string>
+    <string name="drawer_close">Drawer closed</string>
+
+    <string-array name="drawer_list">
+        <item>Voucher Entry</item>
+        <item>All Transaction</item>
+        <item>Ledger Report</item>
+        <item>Income/Expense</item>
+        <item>Profit/Loss</item>
+        <item>Balance Sheet</item>
+        <item>Chart Of Account</item>
+        <item>Help</item>
+    </string-array>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+
+
+    <color name="blue">#003399</color>
 </resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:id="@+id/row">
+
+    <TextView
+        android:id="@+id/txtDateAndName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:padding="4dp"
+        android:textSize="11sp"
+        android:text="Date and AccName"
+        android:textColor="#000000"/>
+
+
+    <TextView
+        android:id="@+id/txtAmountDR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="22.5"
+        android:padding="4dp"
+        android:text="AmountDR"
+        android:textSize="11sp"
+        android:gravity="right"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/txtAmountCR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="22.5"
+        android:padding="4dp"
+        android:text="AmountCR"
+        android:textSize="11sp"
+        android:textColor="#000000"
+        android:gravity="right"/>
+
+    <TextView
+        android:id="@+id/txtBalance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        android:padding="4dp"
+        android:text="Balance"
+        android:textSize="11sp"
+        android:gravity="right"
+        android:textColor="#000000"/>
+
+</LinearLayout>

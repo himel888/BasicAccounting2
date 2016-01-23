@@ -1,148 +1,155 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.mamun.csl.basicaccounting.VoucherEntry">
+    android:background="#ffffff"
+    tools:context="com.cloudsolutionltd.cslMobileAccounts.Activity.VoucherEntry">
+
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp">
+        android:orientation="vertical"
+        android:padding="3dp">
+
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/date"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Transaction Date: "
-                android:id="@+id/date" />
+                android:layout_marginRight="5dp"
+                android:layout_weight="3"
+                android:gravity="left"
+                android:padding="6dp"
+                android:background="#FF02A82F"
+                android:text="Date: "
+                android:textColor="#ffffff"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:ems="10"
+            <TextView
                 android:id="@+id/txtDate"
-                android:hint="dd/mm/yy" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:hint="dd/mm/yy"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:background="@drawable/txt_from_date"
+                android:padding="1dp"
+                android:drawableRight="@android:drawable/ic_menu_my_calendar"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ffffff"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Account From: "
                 android:id="@+id/textView5"
-                android:gravity="center"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spnAccountFrom" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Account To: "
-                android:id="@+id/textView6"
-                android:gravity="center"/>
+                android:layout_marginRight="5dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="#FFE65151"
+                android:text="Acc From(CR): "
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spnAccountTo" />
+                android:id="@+id/spnAccountFrom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="right"/>
+
         </LinearLayout>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="Ammount"
-                android:ems="10"
-                android:padding="11dp"
-                android:id="@+id/txtAmmount"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="Ref-Bill"
-                android:ems="10"
-                android:padding="11dp"
-                android:id="@+id/txtRefBill"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Description"
-            android:ems="10"
-            android:padding="11dp"
-            android:id="@+id/txtDescription" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Bank cheque"
-            android:ems="10"
-            android:padding="11dp"
-            android:id="@+id/txtBankChecque" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Transaction Type"
-            android:ems="10"
-            android:padding="11dp"
-            android:id="@+id/txtTransactionType" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Is complete? "
-                android:id="@+id/textView4" />
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="#FF02A82F"
+                android:text="Acc To(DR): "
+                android:textColor="#ffffff"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/chkStatus" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save"
-                android:id="@+id/btnSave"/>
+            <Spinner
+                android:id="@+id/spnAccountTo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="right"/>
         </LinearLayout>
 
+        <EditText
+            android:id="@+id/txtAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/txtRefBill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ref-Bill"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/txtBankChecque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bank cheque"
+            android:inputType="text"
+            android:padding="7dp" />
+
+        <EditText
+            android:id="@+id/txtTransactionType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Transaction Type"
+            android:inputType="text"/>
+
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/btnSave"
+            android:textColor="#ffffff"
+            android:background="@drawable/save_button_style"/>
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

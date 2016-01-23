@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cloudsolutionltd.cslMobileAccounts.Activity.Help">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="Accounting application to manage personale accounting system"
+            android:background="#9E9E9E"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Features"
+            android:padding="5dp"
+            android:drawableLeft="@drawable/ic_arrow_downward_black_24dp"
+            android:textColor="#000000"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voucher Entry"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:drawableLeft="@drawable/ic_chevron_right_black_18dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Transaction"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:drawableLeft="@drawable/ic_chevron_right_black_18dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ledger Report"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:drawableLeft="@drawable/ic_chevron_right_black_18dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Income/Expense"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:drawableLeft="@drawable/ic_chevron_right_black_18dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profit/Loss"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:drawableLeft="@drawable/ic_chevron_right_black_18dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Balance Sheet"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:drawableLeft="@drawable/ic_chevron_right_black_18dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="Voucher Entry"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:background="#9E9E9E"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:text="@string/voucher_entry_help"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="All Transaction"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:background="#9E9E9E"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:text="@string/all_transaction_help"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

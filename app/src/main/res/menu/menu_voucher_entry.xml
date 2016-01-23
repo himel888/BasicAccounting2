@@ -1,7 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mamun.csl.basicaccounting.VoucherEntry">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    tools:context="com.cloudsolutionltd.cslMobileAccounts.Activity.VoucherEntry">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/chartOfAccount"
+        app:showAsAction="collapseActionView"
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="101"
+        android:title="@string/help"
+        app:showAsAction="collapseActionView"
+        android:visible="true"/>
 </menu>
