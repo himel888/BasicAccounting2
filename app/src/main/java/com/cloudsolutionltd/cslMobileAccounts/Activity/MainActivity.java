@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select menu");
+                getSupportActionBar().setTitle("Select Menu");
                 supportInvalidateOptionsMenu();
             }
         };
