@@ -1,312 +1,333 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:background="#ffffff"
-    android:orientation="vertical"
-    tools:context="com.cloudsolutionltd.cslMobileAccounts.Activity.LedgerReport">
+    android:id="@+id/navigationMenu">
 
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_margin="5dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        tools:context="com.cloudsolutionltd.cslMobileAccounts.Activity.LedgerReport">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:background="#0F5EBC"
-                android:gravity="center"
-                android:text="Acc name: "
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#ffffff"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spnAccountName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"/>
-        </LinearLayout>
-
-        <!--LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:text="From  :"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                    <TextView
-                        android:id="@+id/txtFromDate"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3.5"
-                        android:background="#4A97DF"
-                        android:gravity="center"
-                        android:hint="dd/mm/yy"
-                        android:inputType="date"
-                        android:textColor="#ffffff" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView9"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:paddingRight="10dp"
-                        android:text="To  :"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                    <TextView
-                        android:id="@+id/txtToDate"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3.5"
-                        android:background="#4A97DF"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:hint="dd/mm/yy"
-                        android:inputType="date"
-                        android:textColor="#ffffff" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnSearch"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:background="@drawable/search"
-                android:gravity="center"/>
-        </LinearLayout-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight=".3"
-                        android:background="@drawable/lbl_from_date"
-                        android:padding="5dp"
-                        android:text="From : "
-                        android:textColor="#ffffff"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtFromDate"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".7"
-                        android:background="@drawable/txt_from_date"
-                        android:drawableRight="@android:drawable/ic_menu_my_calendar"
-                        android:gravity="center"
-                        android:text="Medium Text"
-                        android:textColor="#ffffff" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight=".3"
-                        android:background="@drawable/lbl_todate"
-                        android:padding="5dp"
-                        android:text="To : "
-                        android:textColor="#ffffff"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtToDate"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".7"
-                        android:background="@drawable/txt_to_date"
-                        android:drawableRight="@android:drawable/ic_menu_my_calendar"
-                        android:gravity="center"
-                        android:text="Medium Text"
-                        android:textColor="#ffffff"/>
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <Button
-                android:id="@+id/btnSearch"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/search_button_style"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/reportBody"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:layout_marginTop="3dp"
-                    android:background="#4A97BA"
-                    android:padding="5dp"
-                    android:text="Opening Balance :"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtOpeningBalance"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:layout_marginTop="3dp"
-                    android:background="#4A97BA"
-                    android:padding="5dp"
-                    android:text="Balance"
-                    android:gravity="right"
-                    android:textSize="12sp"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#FF024486"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtDate"
+                    android:id="@+id/textView7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="#0F5EBC"
+                    android:gravity="center"
+                    android:text="Acc name: "
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spnAccountName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="30"
-                    android:padding="4dp"
-                    android:text="Date/CrossAcc"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#ffffff"/>
-
-
-                <TextView
-                    android:id="@+id/txtAmountDR"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="22.5"
-                    android:padding="4dp"
-                    android:text="DR"
-                    android:gravity="right"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#ffffff"/>
-
-                <TextView
-                    android:id="@+id/txtAmountCR"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="22.5"
-                    android:padding="4dp"
-                    android:text="CR"
-                    android:gravity="right"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#ffffff"/>
-
-                <TextView
-                    android:id="@+id/txtBalance"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="25"
-                    android:padding="4dp"
-                    android:text="Balance"
-                    android:gravity="right"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#ffffff"/>
+                    android:layout_weight="2"/>
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/listLedger"
+            <!--LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:text="From  :"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/txtFromDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
+                            android:background="#4A97DF"
+                            android:gravity="center"
+                            android:hint="dd/mm/yy"
+                            android:inputType="date"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:paddingRight="10dp"
+                            android:text="To  :"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/txtToDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
+                            android:background="#4A97DF"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="dd/mm/yy"
+                            android:inputType="date"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:background="@drawable/search"
+                    android:gravity="center"/>
+            </LinearLayout-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight=".3"
+                            android:background="@drawable/lbl_from_date"
+                            android:padding="5dp"
+                            android:text="From : "
+                            android:textColor="#ffffff"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtFromDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:background="@drawable/txt_from_date"
+                            android:drawableRight="@android:drawable/ic_menu_my_calendar"
+                            android:gravity="center"
+                            android:text="Medium Text"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight=".3"
+                            android:background="@drawable/lbl_todate"
+                            android:padding="5dp"
+                            android:text="To : "
+                            android:textColor="#ffffff"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtToDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:background="@drawable/txt_to_date"
+                            android:drawableRight="@android:drawable/ic_menu_my_calendar"
+                            android:gravity="center"
+                            android:text="Medium Text"
+                            android:textColor="#ffffff"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/search_button_style"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/reportBody"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="3dp"
+                        android:background="#4A97BA"
+                        android:padding="5dp"
+                        android:text="Opening Balance :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtOpeningBalance"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="3dp"
+                        android:background="#4A97BA"
+                        android:padding="5dp"
+                        android:text="Balance"
+                        android:gravity="right"
+                        android:textSize="12sp"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="#FF024486"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:padding="4dp"
+                        android:text="Date/CrossAcc"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ffffff"/>
+
+
+                    <TextView
+                        android:id="@+id/txtAmountDR"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="22.5"
+                        android:padding="4dp"
+                        android:text="DR"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ffffff"/>
+
+                    <TextView
+                        android:id="@+id/txtAmountCR"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="22.5"
+                        android:padding="4dp"
+                        android:text="CR"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ffffff"/>
+
+                    <TextView
+                        android:id="@+id/txtBalance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:padding="4dp"
+                        android:text="Balance"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ffffff"/>
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/listLedger"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtReportHInt"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Choose account head\nSet your date range \n then tap search button to see report."/>
+
 
         </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtReportHInt"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Choose account head\nSet your date range \n then tap search button to see report."/>
-
-
-    </LinearLayout>
-</ScrollView>
+    <ListView
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:id="@+id/drawarList"
+        android:layout_gravity="start"
+        android:background="#FFFFFF"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/background_dark"
+        android:dividerHeight="1dp"></ListView>
+</android.support.v4.widget.DrawerLayout>

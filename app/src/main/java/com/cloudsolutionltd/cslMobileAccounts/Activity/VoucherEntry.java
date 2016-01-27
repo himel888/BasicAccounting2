@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +54,12 @@ public class VoucherEntry extends AppCompatActivity {
     String date, selectedMonth, selectedDay;
 
 
+    ListView drawerList;
+    DrawerLayout navigationMenu;
+    ArrayAdapter menuListAdapter;
+    ActionBarDrawerToggle mDrawerToggle;
+    String[] item;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +68,87 @@ public class VoucherEntry extends AppCompatActivity {
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF2373C7")));
+
+        item = getResources().getStringArray(R.array.drawer_list);
+
+        navigationMenu = (DrawerLayout) findViewById(R.id.navigationMenu);
+        drawerList = (ListView) findViewById(R.id.drawarList);
+
+        // Set the drawer toggle as the DrawerListener
+        navigationMenu.setDrawerListener(mDrawerToggle);
+
+        menuListAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,item);
+
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+
+            /** Called when drawer is closed */
+            public void onDrawerClosed(View view) {
+                //highlightSelectedCountry();
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_voucher_entry));
+                supportInvalidateOptionsMenu();
+            }
+
+            /** Called when a drawer is opened */
+            public void onDrawerOpened(View drawerView) {
+                getSupportActionBar().setTitle("Select Menu");
+                supportInvalidateOptionsMenu();
+            }
+        };
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        // Setting event listener for the drawer
+        navigationMenu.setDrawerListener(mDrawerToggle);
+
+        drawerList.setAdapter(menuListAdapter);
+        drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 1) {
+                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 2) {
+                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 3) {
+                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 4) {
+                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 5) {
+                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 6) {
+                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 7) {
+                    Intent intent = new Intent(getApplicationContext(), Help.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                }
+            }
+        });
 
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -219,30 +309,17 @@ public class VoucherEntry extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
-            startActivity(intent);
-            return true;
-        }else if (id == R.id.action_help){
-            Intent intent = new Intent(getApplicationContext(), Help.class);
-            startActivity(intent);
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

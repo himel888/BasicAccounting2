@@ -13,6 +13,7 @@
     <string name="title_activity_income_expense">Income/Expense</string>
     <string name="title_activity_profit_loss">Profit/Loss</string>
     <string name="title_activity_Balance_sheet">Balance Sheet</string>
+    <string name="title_activity_help">Help</string>
     <string name="btnSearch">Search</string>
     <string name="btnSave">Save</string>
     <string name="title_activity_csl_home">Cloud Solution ltd</string>

@@ -81,7 +81,7 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"></ListView>
+        android:divider="@android:color/background_dark"
+        android:dividerHeight="1dp"></ListView>
 </android.support.v4.widget.DrawerLayout>
 

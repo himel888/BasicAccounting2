@@ -87,7 +87,7 @@
             android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.Help"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_help"
             android:configChanges="screenSize|orientation" />
     </application>
 
