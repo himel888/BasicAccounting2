@@ -40,7 +40,7 @@ public class VoucherEntry extends AppCompatActivity {
     final int DIALOG_ID = 1;
 
     //Declare activity content
-    EditText txtAmount, txtRefBill, txtDescription, txtBankCheque, txtTransactionType;
+    EditText txtAmount, txtDescription, txtBankCheque;
     TextView txtDate;
     Spinner spnAccountFrom, spnAccountTo;
     Button btnSave;
@@ -225,10 +225,8 @@ public class VoucherEntry extends AppCompatActivity {
                         table.setTable2AccTo(Integer.parseInt(accountNameId[spnAccountTo.getSelectedItemPosition()+1][0]));
                         table.setTable2AmountDr(Double.parseDouble(txtAmount.getText().toString()));
                         table.setTable2AmountCr(Double.parseDouble(txtAmount.getText().toString()));
-                        table.setTable2RefBill(txtRefBill.getText().toString());
                         table.setTable2Description(txtDescription.getText().toString());
                         table.setTable2BankCheque(txtBankCheque.getText().toString());
-                        table.setTable2Transaction_type(txtTransactionType.getText().toString());
 
                         long result = crud.insert(table);
                         if (result >= 0) {
@@ -264,10 +262,8 @@ public class VoucherEntry extends AppCompatActivity {
             }
         });
         txtAmount = (EditText) findViewById(R.id.txtAmount);
-        txtRefBill = (EditText) findViewById(R.id.txtRefBill);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         txtBankCheque = (EditText) findViewById(R.id.txtBankChecque);
-        txtTransactionType = (EditText) findViewById(R.id.txtTransactionType);
         spnAccountFrom = (Spinner) findViewById(R.id.spnAccountFrom);
         spnAccountTo = (Spinner) findViewById(R.id.spnAccountTo);
         btnSave = (Button) findViewById(R.id.btnSave);

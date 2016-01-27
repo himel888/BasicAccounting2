@@ -124,32 +124,6 @@
                 android:textColor="#000000" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:gravity="left"
-                android:text="Reference Bill: "
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/txtReferenceBill"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:enabled="false"
-                android:gravity="left"
-                android:text="Reference Bill"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#000000" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -201,33 +175,6 @@
                 android:enabled="false"
                 android:gravity="left"
                 android:text="Bank Cheque"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:gravity="left"
-                android:text="Transaction Type: "
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/txtTransactionType"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:enabled="false"
-                android:gravity="left"
-                android:text="Transaction Type"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#000000" />
         </LinearLayout>

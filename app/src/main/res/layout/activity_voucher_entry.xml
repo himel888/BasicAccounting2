@@ -121,12 +121,6 @@
                 android:hint="Amount"
                 android:inputType="numberDecimal"/>
 
-            <EditText
-                android:id="@+id/txtRefBill"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ref-Bill"
-                android:inputType="text"/>
 
             <EditText
                 android:id="@+id/txtDescription"
@@ -142,13 +136,6 @@
                 android:hint="Bank cheque"
                 android:inputType="text"
                 android:padding="7dp" />
-
-            <EditText
-                android:id="@+id/txtTransactionType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Transaction Type"
-                android:inputType="text"/>
 
 
             <Button

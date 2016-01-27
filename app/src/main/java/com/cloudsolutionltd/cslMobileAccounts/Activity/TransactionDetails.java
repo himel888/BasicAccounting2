@@ -1,5 +1,7 @@
 package com.cloudsolutionltd.cslMobileAccounts.Activity;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,7 @@ import com.cloudsolutionltd.cslMobileAccounts.R;
 public class TransactionDetails extends AppCompatActivity {
 
 
-    EditText txtAccountFrom, txtAccountTo, txtAmount, txtReferenceBill, txtDescription, txtBankCheque, txtTransactionType;
+    EditText txtAccountFrom, txtAccountTo, txtAmount, txtDescription, txtBankCheque;
     TextView txtDate;
     Button btnEdit, btnUpdate, btnDelete;
     LedgerTransactionTable transactionDetails;
@@ -26,6 +28,9 @@ public class TransactionDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction_details);
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#8cce64")));
+
         initialize();
         final LedgerTransactionCRUD ledgerTransactionCRUD = new LedgerTransactionCRUD(this);
         transactionDetails = (LedgerTransactionTable) getIntent().getSerializableExtra("transactionDetails");
@@ -35,10 +40,8 @@ public class TransactionDetails extends AppCompatActivity {
         txtAccountFrom.setText(ledgerTransactionCRUD.getAccountName(transactionDetails.getTable2AccFrom()));
         txtAccountTo.setText(ledgerTransactionCRUD.getAccountName(transactionDetails.getTable2AccTo()));
         txtAmount.setText(String.valueOf(transactionDetails.getTable2AmountCr()));
-        txtReferenceBill.setText(String.valueOf(transactionDetails.getTable2RefBill()));
         txtDescription.setText(String.valueOf(transactionDetails.getTable2Description()));
         txtBankCheque.setText(String.valueOf(transactionDetails.getTable2BankCheque()));
-        txtTransactionType.setText(transactionDetails.getTable2Transaction_type().toString());
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,10 +49,8 @@ public class TransactionDetails extends AppCompatActivity {
                 //txtAccountFrom.setEnabled(true);
                 //txtAccountTo.setEnabled(true);
                 //txtAmount.setEnabled(true);
-                txtReferenceBill.setEnabled(true);
                 txtDescription.setEnabled(true);
                 txtBankCheque.setEnabled(true);
-                txtTransactionType.setEnabled(true);
 
                 btnEdit.setVisibility(View.GONE);
                 btnDelete.setVisibility(View.GONE);
@@ -73,10 +74,8 @@ public class TransactionDetails extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transactionDetails.setTable2RefBill(txtReferenceBill.getText().toString());
                 transactionDetails.setTable2Description(txtDescription.getText().toString());
                 transactionDetails.setTable2BankCheque(txtBankCheque.getText().toString());
-                transactionDetails.setTable2Transaction_type(txtTransactionType.getText().toString());
 
                 ledgerTransactionCRUD.updatePairedRow(transactionDetails);
             }
@@ -89,10 +88,8 @@ public class TransactionDetails extends AppCompatActivity {
         txtAccountFrom = (EditText) findViewById(R.id.txtAccountFrom);
         txtAccountTo = (EditText) findViewById(R.id.txtAccountTo);
         txtAmount = (EditText) findViewById(R.id.txtAmount);
-        txtReferenceBill = (EditText) findViewById(R.id.txtReferenceBill);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         txtBankCheque = (EditText) findViewById(R.id.txtBankCheque);
-        txtTransactionType = (EditText) findViewById(R.id.txtTransactionType);
         txtDate = (TextView) findViewById(R.id.txtDate);
 
         btnEdit = (Button) findViewById(R.id.btnEdit);

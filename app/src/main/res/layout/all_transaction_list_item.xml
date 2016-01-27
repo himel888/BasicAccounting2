@@ -14,7 +14,8 @@
         android:gravity="left"
         android:text="Medium Text"
         android:textSize="12sp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:padding="5dp"/>
 
     <TextView
         android:id="@+id/txtTransactionDate"
@@ -24,7 +25,8 @@
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Medium Text"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:padding="5dp"/>
 
     <TextView
         android:id="@+id/txtAmount"
@@ -34,5 +36,6 @@
         android:gravity="right"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Text"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:padding="5dp"/>
 </LinearLayout>
