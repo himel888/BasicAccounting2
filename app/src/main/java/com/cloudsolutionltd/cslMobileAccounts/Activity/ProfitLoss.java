@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,8 @@ public class ProfitLoss extends AppCompatActivity {
     ListView listIncome, listExpense;
     Utility utility;
     NumberFormat numberFormat;
+    LinearLayout reportBody;
+    TextView txtReportHint;
 
 
     //Variable for activity work
@@ -105,7 +108,6 @@ public class ProfitLoss extends AppCompatActivity {
                             FormatDate.getDateToSave(txtToDate.getText().toString()), "Expense");
                     if (!statement.isEmpty()) {
 
-                        txtExpenseListHeading.setVisibility(View.VISIBLE);
                         for (int i = 0; i < statement.size(); i++)
                             totalExpense += Double.valueOf(statement.get(i)[1]);
                         
@@ -147,6 +149,9 @@ public class ProfitLoss extends AppCompatActivity {
 
                 profitOrLoss = totalIncome - totalExpense;
 
+                txtReportHint.setVisibility(View.GONE);
+                reportBody.setVisibility(View.VISIBLE);
+
                 if(profitOrLoss < 0)
                     txtTotalAmount.setText("Loss: " + numberFormat.format(profitOrLoss * -1));
                 else
@@ -171,10 +176,11 @@ public class ProfitLoss extends AppCompatActivity {
         txtTotalAmount = (TextView) findViewById(R.id.txtTotalAmount);
         txtIncomelistHeading = (TextView) findViewById(R.id.txtIncomeListHeading);
         txtExpenseListHeading = (TextView) findViewById(R.id.txtExpenseListHeading);
-
         btnSearch = (Button) findViewById(R.id.btnSearch);
         listIncome = (ListView) findViewById(R.id.listIncome);
         listExpense = (ListView) findViewById(R.id.listExpense);
+        reportBody = (LinearLayout) findViewById(R.id.reportBody);
+        txtReportHint = (TextView) findViewById(R.id.txtReportHInt);
     }
 
 

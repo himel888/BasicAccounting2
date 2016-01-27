@@ -29,7 +29,8 @@
                 android:onClick="onRadioButtonClicked"
                 android:padding="5dp"
                 android:text="Income"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/radioExpense"
@@ -202,7 +203,9 @@
             android:layout_height="wrap_content"
             android:background="#FF024486"
             android:textColor="#ffffff"
-            android:padding="5dp">
+            android:padding="5dp"
+            android:id="@+id/reportHeading"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/txtAccountType"
@@ -228,7 +231,8 @@
         <ListView
             android:id="@+id/listStatement"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/txtTotalAmount"
             android:layout_width="wrap_content"
@@ -241,7 +245,16 @@
             android:padding="5dp"
             android:text="Total Amount"
             android:textColor="#ffffff"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtReportHint"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Choose income or expense\nand specify your date range then tap search button to see report."/>
     </LinearLayout>
 
 </ScrollView>

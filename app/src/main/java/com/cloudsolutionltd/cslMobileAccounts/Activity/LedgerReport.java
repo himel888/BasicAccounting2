@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -48,6 +49,8 @@ public class LedgerReport extends AppCompatActivity {
     String date, selectedMonth, selectedDay;
     TextView txtFromDate;
     TextView txtToDate;
+    LinearLayout reportBody;
+    TextView txtReportHint;
 
 
     //Adapter for Spinner
@@ -75,6 +78,10 @@ public class LedgerReport extends AppCompatActivity {
         final LedgerTransactionCRUD ledgerTransactionCRUD = new LedgerTransactionCRUD(this);
         numberFormat = NumberFormat.getInstance();
         numberFormat.setMinimumFractionDigits(2);
+
+
+        reportBody = (LinearLayout) findViewById(R.id.reportBody);
+        txtReportHint = (TextView) findViewById(R.id.txtReportHInt);
 
         final Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -114,7 +121,6 @@ public class LedgerReport extends AppCompatActivity {
 
 
         final Button btnSearch = (Button) findViewById(R.id.btnSearch);
-        final TextView txtAccountInfo = (TextView) findViewById(R.id.txtAccountInfo);
         final TextView txtOpeningBalance = (TextView) findViewById(R.id.txtOpeningBalance);
         //txtopeningBalance.setVisibility(View.INVISIBLE);
         //txtAccountInfo.setVisibility(View.INVISIBLE);
@@ -157,6 +163,9 @@ public class LedgerReport extends AppCompatActivity {
                     //"\nFrom " + txtFromDate.getText() +
                     //" To " + txtToDate.getText());
                     //txtAccountInfo.setVisibility(View.VISIBLE);
+
+                    txtReportHint.setVisibility(View.GONE);
+                    reportBody.setVisibility(View.VISIBLE);
                     txtOpeningBalance.setText(String.valueOf(numberFormat.format(openingBalance)));
                     //txtopeningBalance.setVisibility(View.VISIBLE);
 
