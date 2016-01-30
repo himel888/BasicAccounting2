@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
@@ -51,7 +52,9 @@ public class Help extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4A97DF")));
 
         helpContent = (WebView) findViewById(R.id.helpContent);
-        helpContent.loadUrl("file:///android_asset/help_text.html");
+        WebSettings webSettings = helpContent.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        helpContent.loadUrl("file:///android_asset/mob/help_text.html");
 
 
         item = getResources().getStringArray(R.array.drawer_list);
@@ -94,46 +97,55 @@ public class Help extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
+                if (position == 0){
+                    Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 1) {
-                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
+                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 2) {
-                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
+                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 3) {
-                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
+                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 4) {
-                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
+                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 5) {
-                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
+                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 6) {
-                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 7) {
+                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 8) {
                     Intent intent = new Intent(getApplicationContext(), Help.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
+                }else if (position == 9) {
+                    navigationMenu.closeDrawers();
+                    finish();
+                    System.exit(0);
                 }
             }
         });

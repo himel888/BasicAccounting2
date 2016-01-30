@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CSL Mobile Accounts - Help Manual</title>
+
+  <style>
+  .main-list{
+  font-weight:bold;
+  color:#3467C0;
+  font-size:16px;
+  }
+  .sub-list{
+  color:#ffaa00;
+  font-size:14px;
+  padding:5px;
+  font-weight:bold;
+  }
+
+  ul {
+      padding-left: 10px;
+      font-size:14px;
+  }
+  li{
+  	font-size:12px;
+  }
+  .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+
+      background: #CCFCA1 !important;
+      font-weight: normal;
+      color: #A54D4D;
+}
+
+</style>
+<link rel="stylesheet" href="jquery-ui-style.css">
+
+  <script src="jquery-1.10.2.js"></script>
+  <script src="jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+
+</head>
+<body>
+<div style="padding:10px;color:#70A0AF;">
+<div style="text-align:center;">CSL Mobile Accounts follow universal standard accounting.
+Using this software you can manage personal or company account easily. Bellow are the operation manual.
+Click here to get more <a href="http://cloudsolutionltd.com/mob/online_manual.html">online help</a></div>
+</div>
+
+<div id="accordion">
+  <h3><div  class="main-list">Chart of Account:</div></h3>
+  <div>
+		<ul>
+		Chart of account is the key of accounting system. by default you will get a set of chart of account
+			<li>
+						<div class="sub-list">How to create Chart of Accounts:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Chart of Account" at top right setting option</li>
+				<li><b>Step-2: </b>Click "ADD" button at top right</li>
+				<li><b>Step-3: </b>Select Acc Type, Account ID and Account Name</li>
+				<li><b>Step-4: </b>Finally click on "SAVE" button</li>
+				</ul>
+			</li>
+			<li>
+						<div class="sub-list">How to edit/delete Chart of Accounts:</div>
+				<ul>
+					<li><b>Step-1: </b>Go to "Chart of Account" at top right setting option</li>
+							<li><b>Step-2: </b>go to corresponding Account Head item and Tap on it</li>
+							<li><b>Step-3: </b>Edit Acc Type, Account ID and Account Name as per your desire</li>
+							<li><b>Step-4: </b>Click on "UPDATE" button to edit chart of account</li>
+							<li><b>Step-5: </b>Click on "DELETE" button to delete chart of account.	You can not delete the chart of account if you make transaction with the account head. to delete the chart of account you must have to delete the transaction</li>
+				</ul>
+			</li>
+		</ul>
+	  </div>
+  <h3><div class="main-list">Voucher Entry/Transaction:</div>
+		</h3>
+  <div>
+	<ul>
+		All acoounting reports are produced by only voucher entry. Even initial balance of each account head will also be produce by voucher entry.
+			<li>
+			<div class="sub-list">How to entry Voucher:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Voucher Entry" from main menu</li>
+				<li><b>Step-2: </b>Select "Date", "Acc From (CR)", "Acc To (DR)", Amount and other optional fields</li>
+				<li><b>Step-3: </b>Finally click on "SAVE" button</li>
+				<li><b>Step-4: </b>When done you will move to all transaction page. From this page at top-right corner you can press "VOUCHER ENTRY" for another voucher creation</li>
+			</ul>
+			</li>
+			<li>
+						<div class="sub-list">How to edit/delete Voucher:</div>
+						<ul>
+							<li><b>Step-1: </b>Go to "All Transaction" page from main menu</li>
+							<li><b>Step-2: </b>Find the corresponding voucher that you want to edit or delete. Tap on the voucher</li>
+							<li><b>Step-3: </b>Click on the "EDIT' button to change some editable field. then click on "UPDATE" button</li>
+							<li><b>Step-4: </b>To delete the voucher just click on "DELETE" button</li>
+						</ul>
+			</li>
+		</ul>
+  </div>
+  <h3><div class="main-list">How to setup Initial Balance</div>
+		</h3>
+  <div>
+	<ul>
+		To start business from middle stage we need to adjust opening balance like  at january 01 "Cash in Hand" has initial balance 5,400 and "Director Fund" amount 50,000
+			<li>
+			<div class="sub-list">How to adjust initial balance using Voucher Entry:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Voucher Entry" from main menu</li>
+				<li><b>Step-2: </b>Select "Date" just before the business starting date like 31 Dec, Select "Acc From" as "Adjustment"  and  "Acc To" as "Cash in Hand" and "Amount" as 5400 and other optional fields. Finally click save button</li>
+				<li><b>Step-3: </b>Select "Date" just before the business starting date like 31 Dec, Select "Acc From" as "Director Fund"  and  "Acc To" as "Adjustment" and "Amount" as 50000 and other optional fields. Finally click save button</li>
+			</ul>
+			</li>
+		</ul>
+  </div>
+  <h3><div class="main-list">Ledger Report:</div></h3>
+  <div>
+		<ul>
+		Leadger report are the basic output of accounting system.
+			<li>
+			<div class="sub-list">How to get Ledger Report:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Ledger Report" from main menu</li>
+				<li><b>Step-2: </b>Select a "Account Name", From date, To date</li>
+				<li><b>Step-3: </b>Click on Search button</li>
+				<li><b>Step-4: </b>Expected result will show including previous balance</li>
+			</ul>
+			</li>
+
+		</ul>
+  </div>
+  <h3><div class="main-list">Income/Expense Report:</div></h3>
+  <div>
+		<ul>
+		Income or Expense statement are populated to get corresponding account head wise as well as summarise information.
+			<li>
+			<div class="sub-list">How to get Income Statement:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Income/Expense" from main menu</li>
+				<li><b>Step-2: </b>Select a "Income" radio button</li>
+				<li><b>Step-3: </b>Click on Search button</li>
+				<li><b>Step-4: </b>Expected result will show</li>
+			</ul>
+			</li>
+			<li>
+			<div class="sub-list">How to get Expense Statement:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Income/Expense" from main menu</li>
+				<li><b>Step-2: </b>Select a "Expense" radio button</li>
+				<li><b>Step-3: </b>Click on Search button</li>
+				<li><b>Step-4: </b>Expected result will show</li>
+			</ul>
+			</li>
+
+		</ul>
+	  </div>
+  <h3><div class="main-list">Profit/Loss Report:</div></h3>
+  <div>
+		<ul>
+		Profit/Loss report are produced by deducting Expense from Income in a particular date range. Positive figure indicate profit and Negative figure indicate loss.
+			<li>
+			<div class="sub-list">How to get Profit/Loss report:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Profit/Loss" from main menu</li>
+				<li><b>Step-2: </b>Select From date and To date</li>
+				<li><b>Step-3: </b>Click on Search button</li>
+				<li><b>Step-4: </b>Expected result will show</li>
+			</ul>
+			</li>
+		</ul>
+	  </div>
+	  <h3><div class="main-list">Balance Sheet Report:</div></h3>
+	    <div>
+		<ul>
+		Balance Sheet are the ultimate output of accounting system. It show total asset and total liability from the begining. It also show the current reporting period profit or loss. This report produce ovarall summary information.
+			<li>
+			<div class="sub-list">How to get Balance Sheet report:</div>
+			<ul>
+				<li><b>Step-1: </b>Go to "Balance Sheet" from main menu</li>
+				<li><b>Step-2: </b>Select From date and To date</li>
+				<li><b>Step-3: </b>Click on Search button</li>
+				<li><b>Step-4: </b>Expected result will show</li>
+			</ul>
+			</li>
+		</ul>
+ </div>
+
+</div>
+
+
+</body>
+</html>
+
+
+

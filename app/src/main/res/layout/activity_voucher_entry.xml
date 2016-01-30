@@ -37,12 +37,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="3"
-                    android:gravity="left"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:background="#FF02A82F"
                     android:text="Date: "
                     android:textColor="#ffffff"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/txtDate"
@@ -75,7 +75,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:background="#FFE65151"
-                    android:text="Acc From(CR): "
+                    android:text="Acc From (Cr)"
                     android:textColor="#FFFFFF"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -83,8 +83,7 @@
                     android:id="@+id/spnAccountFrom"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="5"
-                    android:gravity="right"/>
+                    android:layout_weight="5"/>
 
             </LinearLayout>
 
@@ -102,7 +101,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:background="#FF02A82F"
-                    android:text="Acc To(DR): "
+                    android:text="Acc To (Dr)"
                     android:textColor="#ffffff"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -133,7 +132,7 @@
                 android:id="@+id/txtBankChecque"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Bank cheque"
+                android:hint="Bank Cheque"
                 android:inputType="text"
                 android:padding="7dp" />
 
@@ -157,6 +156,6 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"></ListView>
+        android:divider="@android:color/background_dark"
+        android:dividerHeight="1dp"></ListView>
 </android.support.v4.widget.DrawerLayout>

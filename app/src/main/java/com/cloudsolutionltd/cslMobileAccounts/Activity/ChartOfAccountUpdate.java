@@ -45,6 +45,7 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
     private String table1AccountName;
     private int table1AccountId;
     private String table1AccountType;
+    private Button btnCancel;
     //private String table1AccountGroup;
     //private String table1Status;
 
@@ -69,6 +70,7 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
         txtAccountId = (EditText) findViewById(R.id.txtAccountId);
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
         btnDelete = (Button) findViewById(R.id.btnDelete);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
 
 
         final ChartOfAccountTable table = (ChartOfAccountTable) getIntent().getSerializableExtra("table");
@@ -193,13 +195,18 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
                     System.out.print(e);
                 }
 
-
-
-
                 finish();
 
             }
         });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
 
 

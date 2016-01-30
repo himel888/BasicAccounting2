@@ -1,13 +1,17 @@
 package com.cloudsolutionltd.cslMobileAccounts.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
@@ -21,6 +25,7 @@ public class TransactionDetails extends AppCompatActivity {
     Button btnEdit, btnUpdate, btnDelete;
     LedgerTransactionTable transactionDetails;
     int adapterPosition;
+    private Button btnCancel;
 
 
     @Override
@@ -42,6 +47,8 @@ public class TransactionDetails extends AppCompatActivity {
         txtAmount.setText(String.valueOf(transactionDetails.getTable2AmountCr()));
         txtDescription.setText(String.valueOf(transactionDetails.getTable2Description()));
         txtBankCheque.setText(String.valueOf(transactionDetails.getTable2BankCheque()));
+        Log.d("Check id", transactionDetails.getTable2Pid() + "  " + transactionDetails.getTable2PidPair());
+        Log.d("Adapter position", String.valueOf(adapterPosition));
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,22 +69,63 @@ public class TransactionDetails extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ledgerTransactionCRUD.deletePairedRow(transactionDetails.getTable2PidPair());
-                AllTransaction.adapter.remove(AllTransaction.adapter.getItem(adapterPosition));
-                AllTransaction.adapter.notifyDataSetChanged();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(TransactionDetails.this);
+                builder.setMessage("Are you sure to delete this transaction")
+                        .setTitle("Delete")
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // FIRE ZE MISSILES!
+                                int a = ledgerTransactionCRUD.deletePairedRow(transactionDetails.getTable2PidPair());
+
+                                if (a == 2) {
+                                    Toast.makeText(getApplicationContext(), "Transaction Successfully deleted.", Toast.LENGTH_SHORT).show();
+                                    AllTransaction.adapter.remove(AllTransaction.adapter.getItem(adapterPosition));
+                                    AllTransaction.adapter.notifyDataSetChanged();
+                                    finish();
+                                } else
+                                    Toast.makeText(getApplicationContext(), "Transaction doesn't deleted.", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+                // Create the AlertDialog object and return it
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
                 //Intent intent = new Intent(getApplicationContext(),AllTransaction.class);
                 //startActivity(intent);
-                finish();
             }
         });
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 transactionDetails.setTable2Description(txtDescription.getText().toString());
                 transactionDetails.setTable2BankCheque(txtBankCheque.getText().toString());
+                int a = ledgerTransactionCRUD.updatePairedRow(transactionDetails);
+                Log.d("Check Update",String.valueOf(a));
+                Log.d("Check id", transactionDetails.getTable2Pid() + "  " + transactionDetails.getTable2PidPair());
+                if (a == 2){
+                    Toast.makeText(getApplicationContext(),"Update successful.", Toast.LENGTH_SHORT).show();
+                    AllTransaction.voucherEntryList.remove(adapterPosition);
+                    AllTransaction.voucherEntryList.add(adapterPosition, transactionDetails);
+                    AllTransaction.adapter.notifyDataSetChanged();
+                    finish();
+                }else
+                    Toast.makeText(getApplicationContext(),"Update failed", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-                ledgerTransactionCRUD.updatePairedRow(transactionDetails);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
@@ -95,6 +143,8 @@ public class TransactionDetails extends AppCompatActivity {
         btnEdit = (Button) findViewById(R.id.btnEdit);
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
         btnDelete = (Button) findViewById(R.id.btnDelete);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
+
     }
 
 //    @Override

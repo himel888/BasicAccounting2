@@ -208,21 +208,22 @@ public class LedgerTransactionCRUD extends DBHandler {
         return null;
     }
 
-    public void deletePairedRow(int pidPair){
+    public int deletePairedRow(int pidPair){
         db = this.getWritableDatabase();
 
-        db.delete(table2, table2PidPair + " = ?", new String[]{String.valueOf(pidPair)});
+        int a = db.delete(table2, table2PidPair + " = ?", new String[]{String.valueOf(pidPair)});
         db.close();
+        return a;
 
     }
 
 
-    public void updatePairedRow(LedgerTransactionTable table){
+    public int updatePairedRow(LedgerTransactionTable table){
 
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //values.put(DBHandler.table1Pid,chartOfAccountTable.getTable1Pid());
-        //values.put(table2PidPair, table.getTable2PidPair());
+        values.put(table2PidPair, table.getTable2PidPair());
         values.put(table2TransactionDate, table.getTable2TransactionDate());
         values.put(table2AccFrom, table.getTable2AccFrom());
         values.put(table2AccTo, table.getTable2AccTo());
@@ -240,7 +241,7 @@ public class LedgerTransactionCRUD extends DBHandler {
         values.put(table2TransactionDate, table.getTable2TransactionDate());
         values.put(table2AccFrom, table.getTable2AccTo());
         values.put(table2AccTo, table.getTable2AccFrom());
-        values.put(table2AmountDr,table.getTable2AmountDr() );
+        values.put(table2AmountDr,table.getTable2AmountCr() );
         values.put(table2AmountCr, 0);
         values.put(table2RefBill, table.getTable2RefBill());
         values.put(table2Description, table.getTable2Description());
@@ -251,6 +252,7 @@ public class LedgerTransactionCRUD extends DBHandler {
                 " = ?",new String[]{String.valueOf(table.getTable2PidPair()), String.valueOf(table.getTable2Pid()+1)});
         db.close();
 
+        return a+b;
     }
 
 

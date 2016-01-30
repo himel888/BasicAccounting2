@@ -45,7 +45,7 @@ public class AllTransaction extends AppCompatActivity {
     Button btnSearch;
     Button btnVoucherEntry;
     public static ListView listOfAccountName;
-    ArrayList<LedgerTransactionTable> voucherEntryList;
+    public static ArrayList<LedgerTransactionTable> voucherEntryList;
     LedgerTransactionCRUD ledgerTransactionCRUD;
     public static ArrayAdapterForAllTransaction adapter;
     LinearLayout headingLayout;
@@ -108,46 +108,56 @@ public class AllTransaction extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
+
+                if (position == 0){
+                    Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 1) {
-                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
+                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 2) {
-                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
+                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 3) {
-                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
+                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 4) {
-                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
+                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 5) {
-                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
+                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 6) {
-                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 7) {
+                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+                    startActivity(intent);
+                    navigationMenu.closeDrawers();
+                    finish();
+                } else if (position == 8) {
                     Intent intent = new Intent(getApplicationContext(), Help.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
+                }else if (position == 9) {
+                    navigationMenu.closeDrawers();
+                    finish();
+                    System.exit(0);
                 }
             }
         });
@@ -248,8 +258,10 @@ public class AllTransaction extends AppCompatActivity {
 
 
                             if (voucherEntryList.size() < 1) {
+                                Toast.makeText(getApplicationContext(),
+                                        "No available transaction\n From " + txtFromDate.getText().toString() +
+                                                " To " + txtToDate.getText().toString(), Toast.LENGTH_LONG).show();
                                 adapter.notifyDataSetChanged();
-                                Toast.makeText(getApplicationContext(), "No available transaction\n From " + txtFromDate.getText().toString() + " To " + txtToDate.getText().toString(), Toast.LENGTH_LONG).show();
 
                             } else {
                                 adapter.notifyDataSetChanged();

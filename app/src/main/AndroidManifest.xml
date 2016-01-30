@@ -40,7 +40,8 @@
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ChartOfAccountInputForm"
             android:label="@string/title_activity_chart_of_account_input_form"
-            android:configChanges="screenSize|orientation" />
+            android:configChanges="screenSize|orientation"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ChartOfAccount"
             android:label="@string/title_activity_chart_of_account"
@@ -48,11 +49,13 @@
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ChartOfAccountUpdate"
             android:label="@string/title_activity_chart_of_account_update"
-            android:configChanges="screenSize|orientation" />
+            android:configChanges="screenSize|orientation"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.VoucherEntry"
             android:label="@string/title_activity_voucher_entry"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
+            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.LedgerReport"
             android:configChanges="orientation|screenSize"
@@ -69,7 +72,8 @@
             android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.TransactionDetails"
-            android:label="@string/title_activity_transaction_details" />
+            android:label="@string/title_activity_transaction_details"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.IncomeExpenseStatement"
             android:configChanges="screenSize|orientation"
