@@ -227,7 +227,8 @@ public class AllTransaction extends AppCompatActivity {
 
             if (voucherEntryList.size() == 0) {
                 Toast.makeText(getApplicationContext(), "No available transaction\n From " + txtFromDate.getText().toString() + " To " + txtToDate.getText().toString(), Toast.LENGTH_LONG).show();
-
+                adapter = new ArrayAdapterForAllTransaction(AllTransaction.this, voucherEntryList);
+                listOfAccountName.setAdapter(adapter);
             } else {
 
                 adapter = new ArrayAdapterForAllTransaction(AllTransaction.this, voucherEntryList);
@@ -252,7 +253,8 @@ public class AllTransaction extends AppCompatActivity {
                         try {
 
                             voucherEntryList.clear();
-                            voucherEntryList.addAll(ledgerTransactionCRUD.getAllVoucherEntry(FormatDate.getDateToSave(String.valueOf(txtFromDate.getText())),
+                            voucherEntryList.addAll(ledgerTransactionCRUD.getAllVoucherEntry(
+                                    FormatDate.getDateToSave(String.valueOf(txtFromDate.getText())),
                                     FormatDate.getDateToSave(String.valueOf(txtToDate.getText()))));
                             //listOfAccountName.setAdapter(null);
 
