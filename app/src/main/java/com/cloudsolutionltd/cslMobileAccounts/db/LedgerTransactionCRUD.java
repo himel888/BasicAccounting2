@@ -152,7 +152,7 @@ public class LedgerTransactionCRUD extends DBHandler {
         ArrayList<LedgerTransactionTable> voucherEntryList = new ArrayList<LedgerTransactionTable>();
         db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from ledger_transaction where transaction_date between ?" +
-                        " and ? and amount_dr = ? order by transaction_date desc",
+                        " and ? and amount_dr = ? order by transaction_date desc,p_id desc",
                 new String[]{fromDate,toDate, String.valueOf(0)});
 
         if(cursor != null && cursor.getCount()>0){

@@ -145,8 +145,9 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
                     if (result > 0){
 
                         Toast.makeText(getApplicationContext(),"Account head created",Toast.LENGTH_SHORT).show();
-                        txtAccountName.setText("");
-                        txtAccountId.setText("");
+                        finish();
+                        //txtAccountName.setText("");
+                        //txtAccountId.setText("");
 
                     }
 
