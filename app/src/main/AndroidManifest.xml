@@ -34,65 +34,66 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting"
+            android:name=".Activity.BasicAccounting"
             android:label="@string/app_name"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.MainActivity"/>
+            android:parentActivityName=".Activity.MainActivity" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ChartOfAccountInputForm"
+            android:name=".Activity.ChartOfAccountInputForm"
+            android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_chart_of_account_input_form"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.ChartOfAccount"
             android:configChanges="screenSize|orientation"
-            android:windowSoftInputMode="stateHidden"/>
+            android:label="@string/title_activity_chart_of_account" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ChartOfAccount"
-            android:label="@string/title_activity_chart_of_account"
-            android:configChanges="screenSize|orientation" />
-        <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ChartOfAccountUpdate"
+            android:name=".Activity.ChartOfAccountUpdate"
+            android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_chart_of_account_update"
-            android:configChanges="screenSize|orientation"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.VoucherEntry"
+            android:name=".Activity.VoucherEntry"
             android:label="@string/title_activity_voucher_entry"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting"
-            android:windowSoftInputMode="stateHidden"/>
+            android:parentActivityName=".Activity.BasicAccounting"
+            android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.LedgerReport"
+            android:name=".Activity.LedgerReport"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_ledger_report"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting">
+            android:parentActivityName=".Activity.BasicAccounting">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
         </activity>
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.AllTransaction"
+            android:name=".Activity.AllTransaction"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_all_transaction"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
+            android:parentActivityName=".Activity.BasicAccounting" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.TransactionDetails"
+            android:name=".Activity.TransactionDetails"
             android:label="@string/title_activity_transaction_details"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.IncomeExpenseStatement"
+            android:name=".Activity.IncomeExpenseStatement"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_income_expense"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
+            android:parentActivityName=".Activity.BasicAccounting" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.ProfitLoss"
+            android:name=".Activity.ProfitLoss"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_profit_loss"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
+            android:parentActivityName=".Activity.BasicAccounting" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.BalanceSheet"
+            android:name=".Activity.BalanceSheet"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_Balance_sheet"
-            android:parentActivityName="com.cloudsolutionltd.cslMobileAccounts.Activity.BasicAccounting" />
+            android:parentActivityName=".Activity.BasicAccounting" />
         <activity
-            android:name="com.cloudsolutionltd.cslMobileAccounts.Activity.Help"
-            android:label="@string/title_activity_help"
-            android:configChanges="screenSize|orientation" />
+            android:name=".Activity.Help"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_help" />
+        <activity android:name=".Activity.LogInActivity"></activity>
     </application>
 
 </manifest>

@@ -37,21 +37,38 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/txtAccountId"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Account Id"
-            android:inputType="number"
-            android:padding="16dp" />
+            android:layout_margin="7dp"
+            android:padding="5dp">
 
-        <EditText
-            android:id="@+id/txtAccountName"
+            <EditText
+                android:id="@+id/txtAccountId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Account Id"
+                android:inputType="number"
+                android:padding="16dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:capitalize="sentences"
-            android:hint="Account Name"
-            android:padding="16dp" />
+            android:layout_margin="7dp"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/txtAccountName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:capitalize="sentences"
+                android:hint="Account Name"
+                android:padding="16dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+
 
         <Button
             android:id="@+id/btnSave"

@@ -300,6 +300,50 @@ public class LedgerTransactionCRUD extends DBHandler {
 
     }
 
+    public ArrayList getAccountStatement(String toDate, String accountType){
+
+        db = this.getReadableDatabase();
+        ArrayList<String[]> report = new ArrayList<>();
+
+//        Cursor cursor = db.rawQuery("select a.account_name,sum(b.amount_dr) - sum(b.amount_cr) as balance " +
+//                "from chart_of_account a, ledger_transaction b " +
+//                "where b.transaction_date between ? and ?  and a.account_type = ? " +
+//                "and a.account_id = b.acc_from " +
+//                "group by a.account_name", new String[]{fromDate, toDate, accountType});
+
+
+        Cursor cursor = db.rawQuery("select account_name , balance from (select * from chart_of_account where account_type = ?) " +
+                "left  join (" +
+                "select a.account_name,sum(b.amount_dr) - sum(b.amount_cr) as balance " +
+                "from chart_of_account a, ledger_transaction b " +
+                "where b.transaction_date <= ?  and a.account_type = ? " +
+                "and a.account_id = b.acc_from " +
+                "group by a.account_name) " +
+                "using(account_name) " +
+                "order by balance desc", new String[]{accountType, toDate, accountType});
+
+        if (cursor != null && cursor.getCount() > 0){
+            cursor.moveToFirst();
+
+
+            do {
+                String statementRow[] = new String[2];
+                statementRow[0] = cursor.getString(cursor.getColumnIndex("account_name"));
+                statementRow[1] = String.valueOf(cursor.getDouble(cursor.getColumnIndex("balance")));
+                report.add(statementRow);
+            }
+            while (cursor.moveToNext());
+            cursor.close();
+            db.close();
+            return report;
+        }
+
+        cursor.close();
+        db.close();
+        return report;
+
+    }
+
 
     /*select acc_from, sum(amount_dr) - sum(amount_cr) as balance
 from ledger_transaction

@@ -51,6 +51,7 @@ public class LedgerReport extends AppCompatActivity {
     String date, selectedMonth, selectedDay;
     TextView txtFromDate;
     TextView txtToDate;
+    TextView txtClosingBalance;
     LinearLayout reportBody;
     TextView txtReportHint;
 
@@ -90,6 +91,8 @@ public class LedgerReport extends AppCompatActivity {
 
         // Set the drawer toggle as the DrawerListener
         navigationMenu.setDrawerListener(mDrawerToggle);
+
+        txtClosingBalance = (TextView) findViewById(R.id.txtClosingBalance);
 
         menuListAdapter = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1,item);
@@ -169,8 +172,10 @@ public class LedgerReport extends AppCompatActivity {
                     finish();
                 }else if (position == 9) {
                     navigationMenu.closeDrawers();
-                    finish();
-                    System.exit(0);
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
             }
         });
@@ -290,6 +295,7 @@ public class LedgerReport extends AppCompatActivity {
 
                             adapterForLedgerReport = new ArrayAdapterForLedgerReport(LedgerReport.this, voucherEntryList, currentBalance);
                             listLedger.setAdapter(adapterForLedgerReport);
+                            txtClosingBalance.setText(String.valueOf(currentBalance[voucherEntryList.size()-1]));
 
                             Utility.setListViewHeightBasedOnChildren(listLedger);
                             Log.e("OK Mamun", "Adapter working well");

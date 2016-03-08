@@ -239,7 +239,7 @@
                         android:layout_marginTop="3dp"
                         android:background="#4A97BA"
                         android:padding="5dp"
-                        android:text="Balance"
+                        android:text="0.00"
                         android:gravity="right"
                         android:textSize="12sp"
                         android:textColor="#ffffff"
@@ -306,6 +306,41 @@
                     android:id="@+id/listLedger"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="3dp"
+                        android:background="#4A97BA"
+                        android:padding="5dp"
+                        android:text="Closing Balance :"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtClosingBalance"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="3dp"
+                        android:background="#4A97BA"
+                        android:padding="5dp"
+                        android:text="0.00"
+                        android:gravity="right"
+                        android:textSize="12sp"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 

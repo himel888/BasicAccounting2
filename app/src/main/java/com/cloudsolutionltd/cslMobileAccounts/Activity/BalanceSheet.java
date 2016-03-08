@@ -155,9 +155,15 @@ public class BalanceSheet extends AppCompatActivity {
                     navigationMenu.closeDrawers();
                     finish();
                 }else if (position == 9) {
+
+//                    //finish();
+//                    android.os.Process.killProcess(android.os.Process.myPid());
+//                    System.exit(0);
                     navigationMenu.closeDrawers();
-                    finish();
-                    System.exit(0);
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
             }
         });
@@ -209,8 +215,7 @@ public class BalanceSheet extends AppCompatActivity {
                 userHint.setVisibility(View.GONE);
 
                 try {
-                    statement = ledgerTransactionCRUD.getAccountStatement(FormatDate.getDateToSave(txtFromDate.getText().toString()),
-                            FormatDate.getDateToSave(txtToDate.getText().toString()), "Asset");
+                    statement = ledgerTransactionCRUD.getAccountStatement(FormatDate.getDateToSave(txtToDate.getText().toString()), "Asset");
                     if (statement != null) {
 
                         txtAssetListHeading.setVisibility(View.VISIBLE);
@@ -238,8 +243,7 @@ public class BalanceSheet extends AppCompatActivity {
                 }
 
                 try {
-                    statement = ledgerTransactionCRUD.getAccountStatement(FormatDate.getDateToSave(txtFromDate.getText().toString()),
-                            FormatDate.getDateToSave(txtToDate.getText().toString()), "Liability");
+                    statement = ledgerTransactionCRUD.getAccountStatement(FormatDate.getDateToSave(txtToDate.getText().toString()), "Liability");
                     if (statement != null) {
 
                         txtLiabilityListHeading.setVisibility(View.VISIBLE);

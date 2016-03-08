@@ -144,8 +144,10 @@ public class Help extends AppCompatActivity {
                     finish();
                 }else if (position == 9) {
                     navigationMenu.closeDrawers();
-                    finish();
-                    System.exit(0);
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
             }
         });
