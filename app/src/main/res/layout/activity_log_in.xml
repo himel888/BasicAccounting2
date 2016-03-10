@@ -3,18 +3,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".Activity.LogInActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    tools:context=".Activity.LogInActivity"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/homescreen_logo"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayoutPin"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/eTxtPin"
-            android:hint="Enter pin"/>
+            android:hint="Four digit pin"
+            android:inputType="numberPassword"
+            android:textColorHint="#512DA8"
+            android:textColor="#304FFE"/>
     </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chkRememberMe"
+        android:text="Remember me"
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="left"
+        android:textColor="#304FFE"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE">
+
+        <TextView
+            android:id="@+id/txtForgetPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget pin?"
+            android:padding="10dp"
+            android:textColor="#304FFE"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/txtCreatePin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create pin!"
+            android:padding="10dp"
+            android:textColor="#304FFE"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:onClick="txtCreatePinOnClick"/>
+    </LinearLayout>
 
 </LinearLayout>
