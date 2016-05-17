@@ -26,7 +26,7 @@
                 android:layout_gravity="end"
                 android:background="@drawable/style_btn_all_transaction_voucher_entry"
                 android:layout_marginTop="4dp"
-                android:text="Voucher entry"
+                android:text="@string/title_activity_voucher_entry"
                 android:textSize="10sp"
                 android:textColor="#000000"
                 android:padding="8dp"
@@ -61,7 +61,7 @@
                             android:layout_weight=".3"
                             android:background="@drawable/lbl_from_date"
                             android:padding="5dp"
-                            android:text="From : "
+                            android:text="@string/lblFrom"
                             android:textColor="#ffffff"
                             android:textStyle="bold" />
 
@@ -92,7 +92,7 @@
                             android:layout_weight=".3"
                             android:background="@drawable/lbl_todate"
                             android:padding="5dp"
-                            android:text="To : "
+                            android:text="@string/lblTo"
                             android:textColor="#ffffff"
                             android:textStyle="bold" />
 

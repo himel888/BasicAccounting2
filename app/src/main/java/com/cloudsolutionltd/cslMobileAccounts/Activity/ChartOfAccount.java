@@ -8,6 +8,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -90,56 +91,52 @@ public class ChartOfAccount extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
+                    Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 1) {
-                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
+                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 2) {
-                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
+                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 3) {
-                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
+                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 4) {
-                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
+                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 5) {
-                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
+                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 6) {
-                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 7) {
-                    Intent intent = new Intent(getApplicationContext(), Help.class);
+                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 8) {
-                    Intent intent = new Intent(getApplicationContext(), Help.class);
-                    startActivity(intent);
+                }else if (position == 8) {
                     navigationMenu.closeDrawers();
                     finish();
-                }else if (position == 9) {
-                    navigationMenu.closeDrawers();
                     Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+//                    System.exit(0);
                 }
             }
         });
@@ -227,9 +224,20 @@ public class ChartOfAccount extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_chart_of_account,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
+//        if (mDrawerToggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
+
+        if (item.getItemId() == R.id.action_add_chart_of_account){
+            Intent intent = new Intent(getApplicationContext(), ChartOfAccountInputForm.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

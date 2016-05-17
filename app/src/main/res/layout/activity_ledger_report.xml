@@ -35,7 +35,7 @@
                     android:layout_weight="1"
                     android:background="#0F5EBC"
                     android:gravity="center"
-                    android:text="Acc name: "
+                    android:text="@string/lblAccName"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
@@ -146,7 +146,7 @@
                             android:layout_weight=".3"
                             android:background="@drawable/lbl_from_date"
                             android:padding="5dp"
-                            android:text="From : "
+                            android:text="@string/lblFrom"
                             android:textColor="#ffffff"
                             android:textStyle="bold" />
 
@@ -176,7 +176,7 @@
                             android:layout_weight=".3"
                             android:background="@drawable/lbl_todate"
                             android:padding="5dp"
-                            android:text="To : "
+                            android:text="@string/lblTo"
                             android:textColor="#ffffff"
                             android:textStyle="bold" />
 
@@ -350,7 +350,7 @@
                 android:id="@+id/txtReportHInt"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Choose account head\nSet your date range \n then tap search button to see report."/>
+                android:text="@string/ledgerReportSuggetion"/>
 
 
         </LinearLayout>

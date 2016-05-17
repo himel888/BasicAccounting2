@@ -40,7 +40,7 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:background="#FF02A82F"
-                    android:text="Date: "
+                    android:text="@string/lblDate"
                     android:textColor="#ffffff"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -75,7 +75,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:background="#FFE65151"
-                    android:text="Acc From (Cr)"
+                    android:text="@string/lblAccFrom"
                     android:textColor="#FFFFFF"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -101,7 +101,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:background="#FF02A82F"
-                    android:text="Acc To (Dr)"
+                    android:text="@string/lblAccTo"
                     android:textColor="#ffffff"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 

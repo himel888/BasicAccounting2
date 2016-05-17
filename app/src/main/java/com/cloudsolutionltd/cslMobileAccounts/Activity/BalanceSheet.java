@@ -150,16 +150,8 @@ public class BalanceSheet extends AppCompatActivity {
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 8) {
-                    Intent intent = new Intent(getApplicationContext(), Help.class);
-                    startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
-                }else if (position == 9) {
-
-//                    //finish();
-//                    android.os.Process.killProcess(android.os.Process.myPid());
-//                    System.exit(0);
-                    navigationMenu.closeDrawers();
                     Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

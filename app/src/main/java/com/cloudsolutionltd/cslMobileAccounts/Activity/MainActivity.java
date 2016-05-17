@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.*;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +27,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.cloudsolutionltd.cslMobileAccounts.LocaleHelper;
 import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import java.util.Locale;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     String[] item;
     AdView adView;
     AdRequest adRequest;
+    private Locale myLocale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         menuListAdapter = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1,item);
+
 
         mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
 
@@ -125,14 +136,16 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
-                } else if (position == 8) {
-                    Intent intent = new Intent(getApplicationContext(), Help.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                }else if (position == 9) {
+                }else if (position == 8) {
                     navigationMenu.closeDrawers();
                     finish();
-                    System.exit(0);
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                    System.exit(0);
                 }
             }
         });
@@ -140,6 +153,18 @@ public class MainActivity extends AppCompatActivity {
 
         cslWebContent = (WebView) findViewById(R.id.CSLWebContent);
 
+    }
+
+    public void setLocale(String lang) {
+        myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+//        Intent refresh = new Intent(this, MainActivity.class);
+//        startActivity(refresh);
+        //finish();
     }
 
     public void btnEnterOnClick(View view){
@@ -239,8 +264,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.help){
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

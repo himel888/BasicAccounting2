@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.cloudsolutionltd.cslMobileAccounts">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -10,7 +11,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
 
         <!--
         activity
@@ -26,34 +28,42 @@
 
         <activity
             android:name=".Activity.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:configChanges="screenSize|orientation|locale">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.BasicAccounting"
             android:label="@string/app_name"
+            android:configChanges="screenSize|orientation|locale"
             android:parentActivityName=".Activity.MainActivity" />
         <activity
             android:name=".Activity.ChartOfAccountInputForm"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_chart_of_account_input_form"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Activity.ChartOfAccount"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_chart_of_account" />
         <activity
             android:name=".Activity.ChartOfAccountUpdate"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_chart_of_account_update"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Activity.VoucherEntry"
             android:label="@string/title_activity_voucher_entry"
+            android:configChanges="screenSize|orientation|locale"
             android:parentActivityName=".Activity.BasicAccounting"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Activity.LedgerReport"
-            android:configChanges="orientation|screenSize"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_ledger_report"
             android:parentActivityName=".Activity.BasicAccounting">
             <meta-data
@@ -62,40 +72,40 @@
         </activity>
         <activity
             android:name=".Activity.AllTransaction"
-            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:label="@string/title_activity_all_transaction"
             android:parentActivityName=".Activity.BasicAccounting" />
         <activity
             android:name=".Activity.TransactionDetails"
             android:label="@string/title_activity_transaction_details"
+            android:configChanges="screenSize|orientation|locale"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Activity.IncomeExpenseStatement"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_income_expense"
             android:parentActivityName=".Activity.BasicAccounting" />
         <activity
             android:name=".Activity.ProfitLoss"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_profit_loss"
             android:parentActivityName=".Activity.BasicAccounting" />
         <activity
             android:name=".Activity.BalanceSheet"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_Balance_sheet"
             android:parentActivityName=".Activity.BasicAccounting" />
         <activity
             android:name=".Activity.Help"
-            android:configChanges="screenSize|orientation"
+            android:configChanges="screenSize|orientation|locale"
             android:label="@string/title_activity_help" />
-        <activity android:name=".Activity.LogInActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Activity.LogInActivity"
+            android:configChanges="screenSize|orientation|locale"
+        />
+        <activity android:name=".Activity.Settings"
+            android:label="@string/settings_title"
+            android:configChanges="screenSize|orientation|locale"/>
+        <activity android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity" />
     </application>
 
 </manifest>

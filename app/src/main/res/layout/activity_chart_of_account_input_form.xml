@@ -24,7 +24,7 @@
                 android:layout_weight="2"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Acc Type: "
+                android:text="@string/lblAccType"
                 android:background="#1160be"
                 android:textColor="#ffffff"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -47,7 +47,7 @@
                 android:id="@+id/txtAccountId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Account Id"
+                android:hint="@string/hintAccountId"
                 android:inputType="number"
                 android:padding="16dp" />
         </android.support.design.widget.TextInputLayout>
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:capitalize="sentences"
-                android:hint="Account Name"
+                android:hint="@string/hintAccountName"
                 android:padding="16dp" />
         </android.support.design.widget.TextInputLayout>
 
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Save"
+            android:text="@string/btnSave"
             android:layout_gravity="right"
             android:textColor="#ffffff"
             android:background="@drawable/save_button_style" />

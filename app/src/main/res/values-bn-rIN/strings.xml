@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">সিএসএল মোবাইল অ্যাকাউন্টস</string>
+
+    <string name="initial_item">None</string>
+    <string name="btnSearch">অনুসন্ধান</string>
+    <string name="btnSave">সংরক্ষণ করুন</string>
+    <string name="Update">হালনাগাদ</string>
+    <string name="Delete">মুছে ফেলা</string>
+    <string name="help_menu_title">সাহায্য</string>
+    <string name="settings_menu_title">সেটিংস</string>
+    <string name="csl_web_link">www.cloud-aps.com
+        <a href="www.cloud-aps.com" target="_top"></a></string>
+    <string name="help">সাহায্য</string>
+    <string name="settings_title">সেটিংস</string>
+    <string name="voucher_entry_help">
+            1. Choose account from which are basically CR account - AccFrom (CR):\n\n
+        2. Choose account to which are DR account - AccTo (DR):\n\n
+        3. Fill all other information about your respective transaction.\n\n
+        4. Tap save to save your transaction.\n\n
+            You can create, update and delete account head from chart of account section which are located
+        in the settings menu section top right of your application.</string>
+
+    <string name="all_transaction_help">1. Choose From date.\n2. Choose to date.\n3. Tap search button.\n\n
+            # After taping search button You will see all transaction between from date and to date.\n</string>
+    <string name="drawer_open">ড্রয়ারের খোলা</string>
+    <string name="drawer_close">ড্রয়ারের বন্ধ</string>
+    <string name="lblFrom">হইতে :</string>
+    <string name="lblTo">থেকে:</string>
+
+    <string-array name="drawer_list">
+        <item>Home</item>
+        <item>Voucher Entry</item>
+        <item>All Transaction</item>
+        <item>Ledger Report</item>
+        <item>Income/Expense</item>
+        <item>Profit/Loss</item>
+        <item>Balance Sheet</item>
+        <item>Chart Of Account</item>
+        <item>Exit</item>
+    </string-array>
+
+    <string-array name="language_list">
+        <item>Bangla</item>
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
+
+    <string-array name="language_code">
+        <item>bn</item>
+        <item>en</item>
+        <item>hi</item>
+    </string-array>
+
+    <string name="banner_ad_unit_id">ca-app-pub-2449529566292304/5657530676</string>
+
+
+    <color name="blue">#003399</color>
+    <string name="lblDate">তারিখ:</string>
+    <string name="balanceSheetSuggetion">তারিখ নির্বাচন করুন, \n তারপর সার্চ বাটনে টোকা নিজ নিজ তারিখ পরিসীমা জন্য ব্যালেন্স রিপোর্ট পেতে</string>
+    <string name="btnAdd">তারিখ নির্বাচন করুন, \ তারপর সার্চ বাটনে টোকা নিজ নিজ তারিখ পরিসীমা জন্য ব্যালেন্স রিপোর্ট পেতে</string>
+    <string name="btnBackup">ব্যাক আপ</string>
+    <string name="btnRestore">প্রত্যর্পণ করা</string>
+    <string name="btnScheduler">পরিকল্পনাকারী</string>
+    <string name="hintAccountId">অ্যাকাউন্ট আইডি</string>
+    <string name="hintAccountName">হিসাবের নাম</string>
+    <string name="incomeExpenseSuggetion">আয় বা ব্যয়ের \ নন্দ আপনার তারিখ পরিসীমা উল্লেখ তারপর সার্চ বাটনে টোকা রিপোর্ট দেখতে.</string>
+    <string name="profitLossSuggetion">আপনার তারিখ পরিসীমা প্রথম \ সেট এবং তারপর সার্চ বাটনে টোকা রিপোর্ট দেখতে.</string>
+    <string name="radioIncome">আয়</string>
+    <string name="radioExpense">খরচ</string>
+    <string name="ledgerReportSuggetion">অ্যাকাউন্ট মাথা বেছে নিন \n আপনার তারিখ পরিসর \n সেট এবং তারপর সার্চ বাটনে টোকা রিপোর্ট দেখতে.</string>
+</resources>

@@ -36,7 +36,7 @@
                     android:fontFamily="sans_serif"
                     android:onClick="onRadioButtonClicked"
                     android:padding="5dp"
-                    android:text="Income"
+                    android:text="@string/radioIncome"
                     android:textColor="#000000"
                     android:checked="true"/>
 
@@ -48,7 +48,7 @@
                     android:fontFamily="sans_serif"
                     android:onClick="onRadioButtonClicked"
                     android:padding="5dp"
-                    android:text="Expense"
+                    android:text="@string/radioExpense"
                     android:textColor="#000000" />
             </RadioGroup>
 
@@ -146,7 +146,7 @@
                             android:layout_weight=".3"
                             android:background="@drawable/lbl_from_date"
                             android:padding="5dp"
-                            android:text="From : "
+                            android:text="@string/lblFrom"
                             android:textColor="#ffffff" />
 
                         <TextView
@@ -175,7 +175,7 @@
                             android:layout_weight=".3"
                             android:background="@drawable/lbl_todate"
                             android:padding="5dp"
-                            android:text="To : "
+                            android:text="@string/lblTo"
                             android:textColor="#ffffff"/>
 
                         <TextView
@@ -262,7 +262,7 @@
                 android:id="@+id/txtReportHint"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Choose income or expense\nand specify your date range then tap search button to see report."/>
+                android:text="@string/incomeExpenseSuggetion"/>
         </LinearLayout>
 
     </ScrollView>

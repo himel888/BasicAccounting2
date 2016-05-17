@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -150,12 +151,8 @@ public class AllTransaction extends AppCompatActivity {
                     navigationMenu.closeDrawers();
                     finish();
                 } else if (position == 8) {
-                    Intent intent = new Intent(getApplicationContext(), Help.class);
-                    startActivity(intent);
                     navigationMenu.closeDrawers();
                     finish();
-                }else if (position == 9) {
-                    navigationMenu.closeDrawers();
                     Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -218,14 +215,16 @@ public class AllTransaction extends AppCompatActivity {
                     finish();
             }
         });
-
+        txtFromDate.setText(FormatDate.getDateToShow(String.valueOf(year) + "/" + selectedMonth + "/" + "01"));
+        txtToDate.setText(FormatDate.getDateToShow(date));
 
         //Show default report from first date to current date of this month
         try {
-            voucherEntryList = ledgerTransactionCRUD.getAllVoucherEntry(simpleDateFormat.format(calendar.getTime()).substring(0, 8) + "/01",
-                    simpleDateFormat.format(calendar.getTime()));
-            txtFromDate.setText(FormatDate.getDateToShow(String.valueOf(year) + "/" + selectedMonth + "/" + "01"));
-            txtToDate.setText(FormatDate.getDateToShow(date));
+            voucherEntryList = ledgerTransactionCRUD.getAllVoucherEntry(FormatDate.getDateToSave(txtFromDate.getText().toString()),
+                    FormatDate.getDateToSave(txtToDate.getText().toString()));
+
+//            Toast.makeText(getApplicationContext(),txtFromDate.getText().toString()+" "+
+//                    txtToDate.getText().toString(),Toast.LENGTH_LONG).show();
 
             if (voucherEntryList.size() == 0) {
                 Toast.makeText(getApplicationContext(), "No available transaction\n From " + txtFromDate.getText().toString() + " To " + txtToDate.getText().toString(), Toast.LENGTH_LONG).show();
@@ -258,6 +257,8 @@ public class AllTransaction extends AppCompatActivity {
                             voucherEntryList.addAll(ledgerTransactionCRUD.getAllVoucherEntry(
                                     FormatDate.getDateToSave(String.valueOf(txtFromDate.getText())),
                                     FormatDate.getDateToSave(String.valueOf(txtToDate.getText()))));
+//                            Toast.makeText(getApplicationContext(), FormatDate.getDateToSave(String.valueOf(txtFromDate.getText()))+"  "+
+//                                    FormatDate.getDateToSave(String.valueOf(txtToDate.getText())),Toast.LENGTH_LONG).show();
                             //listOfAccountName.setAdapter(null);
 
 

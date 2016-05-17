@@ -19,9 +19,12 @@
     <string name="title_activity_csl_home">Cloud Solution ltd</string>
     <string name="Update">update</string>
     <string name="Delete">delete</string>
+    <string name="help_menu_title">Help</string>
+    <string name="settings_menu_title">Settings</string>
     <string name="csl_web_link">www.cloud-aps.com
         <a href="www.cloud-aps.com" target="_top"></a></string>
     <string name="help">Help</string>
+    <string name="settings_title">Settings</string>
     <string name="voucher_entry_help">
             1. Choose account from which are basically CR account - AccFrom (CR):\n\n
         2. Choose account to which are DR account - AccTo (DR):\n\n
@@ -34,6 +37,26 @@
             # After taping search button You will see all transaction between from date and to date.\n</string>
     <string name="drawer_open">Drawer opened</string>
     <string name="drawer_close">Drawer closed</string>
+    <string name="lblFrom">From : </string>
+    <string name="lblTo">To : </string>
+    <string name="lblDate">Date : </string>
+    <string name="lblAccFrom">Acc From (Cr)</string>
+    <string name="lblAccTo">Acc To (Dr)</string>
+    <string name="lblAccName">Acc name: </string>
+    <string name="ledgerReportSuggetion">Choose account head\nSet your date range \n then tap search button to see report.</string>
+    <string name="radioIncome">Income</string>
+    <string name="radioExpense">Expense</string>
+    <string name="incomeExpenseSuggetion">Choose income or expense\nand specify your date range then tap search button to see report.</string>
+    <string name="profitLossSuggetion">Set your date range first \n then tap search button to see report.</string>
+
+    <string name="balanceSheetSuggetion">Choose date,\nthen tap search button to get Balance report for respective date range</string>
+    <string name="btnAdd">Add</string>
+    <string name="lblAccType">Acc Type: </string>
+    <string name="hintAccountId">Account Id</string>
+    <string name="hintAccountName">Account Name</string>
+    <string name="btnBackup">Back up</string>
+    <string name="btnRestore">Restore</string>
+    <string name="btnScheduler">Scheduler</string>
 
     <string-array name="drawer_list">
         <item>Home</item>
@@ -44,9 +67,21 @@
         <item>Profit/Loss</item>
         <item>Balance Sheet</item>
         <item>Chart Of Account</item>
-        <item>Help</item>
         <item>Exit</item>
     </string-array>
+
+    <string-array name="language_list">
+        <item>Bangla</item>
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
+
+    <string-array name="language_code">
+        <item>bn</item>
+        <item>en</item>
+        <item>hi</item>
+    </string-array>
+
     <string name="banner_ad_unit_id">ca-app-pub-2449529566292304/5657530676</string>
 
 
