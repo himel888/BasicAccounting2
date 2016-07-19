@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,10 +24,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cloudsolutionltd.cslMobileAccounts.Adapter.AdapterForIncomeExpenseStatement;
-import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.FormatDate;
 import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.Utility;
+import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -79,9 +79,9 @@ public class BalanceSheet extends AppCompatActivity {
         navigationMenu.setDrawerListener(mDrawerToggle);
 
         menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
+                android.R.layout.simple_list_item_1, item);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when drawer is closed */
             public void onDrawerClosed(View view) {
@@ -92,7 +92,7 @@ public class BalanceSheet extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_select_menu));
 
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
                 supportInvalidateOptionsMenu();
@@ -109,7 +109,7 @@ public class BalanceSheet extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
+                if (position == 0) {
                     Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
@@ -199,7 +199,6 @@ public class BalanceSheet extends AppCompatActivity {
         });
 
 
-
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -227,9 +226,8 @@ public class BalanceSheet extends AppCompatActivity {
                         listAsset.setAdapter(adapterForAsset);
                         Utility.setListViewHeightBasedOnChildren(listAsset);
                         //txtTotalAmount.setText("Total amount: " + String.valueOf(totalAmount));
-                    }
-                    else
-                        Toast.makeText(getApplicationContext(),"No such data found", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "No such data found", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("ListView Error: ", e.toString());
                 }
@@ -250,13 +248,11 @@ public class BalanceSheet extends AppCompatActivity {
                         listLiability.setAdapter(adapterForLiability);
                         Utility.setListViewHeightBasedOnChildren(listLiability);
                         //txtTotalAmount.setText("Total amount: " + String.valueOf(totalAmount));
-                    }
-                    else
-                        Toast.makeText(getApplicationContext(),"No such data found", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "No such data found", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("ListView Error: ", e.toString());
                 }
-
 
 
                 try {
@@ -265,8 +261,7 @@ public class BalanceSheet extends AppCompatActivity {
                     if (statement != null) {
                         for (int i = 0; i < statement.size(); i++)
                             totalExpense += Double.valueOf(statement.get(i)[1]);
-                    }
-                    else
+                    } else
                         Toast.makeText(getApplicationContext(), "No such data found", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("ListView Error: ", e.toString());
@@ -281,22 +276,20 @@ public class BalanceSheet extends AppCompatActivity {
                             totalIncome += Double.valueOf(statement.get(i)[1]);
 
                         totalIncome *= -1;
-                    }
-                    else
-                        Toast.makeText(getApplicationContext(),"No such data found", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "No such data found", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("ListView Error: ", e.toString());
                 }
 
                 profitOrLoss = totalIncome - totalExpense;
 
-                if(profitOrLoss < 0){
-                    txtProfitOrLossHeading.setText("Loss: ");
+                if (profitOrLoss < 0) {
+                    txtProfitOrLossHeading.setText(getResources().getString(R.string.txt_loss));
                     txtProfitOrLoss.setText(numberFormat.format(profitOrLoss * -1));
 
-                }
-                else{
-                    txtProfitOrLossHeading.setText("Profit: ");
+                } else {
+                    txtProfitOrLossHeading.setText(getResources().getString(R.string.txt_profit));
                     txtProfitOrLoss.setText(numberFormat.format(profitOrLoss));
 
                 }
@@ -312,7 +305,7 @@ public class BalanceSheet extends AppCompatActivity {
     }
 
 
-    private void initialize(){
+    private void initialize() {
         txtFromDate = (TextView) findViewById(R.id.txtFromDate);
         txtToDate = (TextView) findViewById(R.id.txtToDate);
         txtTotalAsset = (TextView) findViewById(R.id.txtTotalAsset);
@@ -404,8 +397,24 @@ public class BalanceSheet extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_all_transaction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        } else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

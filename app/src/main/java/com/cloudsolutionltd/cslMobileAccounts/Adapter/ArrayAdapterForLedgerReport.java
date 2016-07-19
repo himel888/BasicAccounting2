@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import com.cloudsolutionltd.cslMobileAccounts.Activity.LedgerReport;
 import com.cloudsolutionltd.cslMobileAccounts.FormatDate;
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class ArrayAdapterForLedgerReport extends ArrayAdapter<LedgerTransactionT
 
     public ArrayAdapterForLedgerReport(Context context, ArrayList<LedgerTransactionTable> voucherEntryList, double[] currentBalance) {
 
-        super(context, R.layout.ledger_report_list_item , voucherEntryList);
+        super(context, R.layout.ledger_report_list_item, voucherEntryList);
 
         con = (Activity) context;
         this.voucherEntryList = voucherEntryList;
@@ -44,33 +44,32 @@ public class ArrayAdapterForLedgerReport extends ArrayAdapter<LedgerTransactionT
     }
 
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = new ViewHolder();
 
-        if(convertView == null){
+        if (convertView == null) {
             //Generate view
             LayoutInflater inflater = con.getLayoutInflater();
-            convertView = inflater.inflate(R.layout.ledger_report_list_item,null);
+            convertView = inflater.inflate(R.layout.ledger_report_list_item, null);
             viewHolder.txtDateAndName = (TextView) convertView.findViewById(R.id.txtDateAndName);
             viewHolder.txtAmountDR = (TextView) convertView.findViewById(R.id.txtAmountDR);
             viewHolder.txtAmountCR = (TextView) convertView.findViewById(R.id.txtAmountCR);
             viewHolder.txtBalance = (TextView) convertView.findViewById(R.id.txtBalance);
             viewHolder.row = (LinearLayout) convertView.findViewById(R.id.row);
 
-        }else{
+        } else {
             return convertView;
         }
 
         LedgerTransactionTable c = voucherEntryList.get(position);
 
         try {
-            if (position%2 == 0){
+            if (position % 2 == 0) {
                 viewHolder.row.setBackgroundColor(Color.parseColor("#FFEAF4FE"));
-            }else
+            } else
                 viewHolder.row.setBackgroundColor(Color.parseColor("#FFFFFF"));
-            viewHolder.txtDateAndName.setText(FormatDate.getDateToShow(c.getTable2TransactionDate()) +"\n" + ledgerTransactionCRUD.getAccountName(c.getTable2AccTo()));
+            viewHolder.txtDateAndName.setText(FormatDate.getDateToShow(c.getTable2TransactionDate()) + "\n" + ledgerTransactionCRUD.getAccountName(c.getTable2AccTo()));
             viewHolder.txtAmountDR.setText(String.valueOf(numberFormat.format(c.getTable2AmountDr())));
             viewHolder.txtAmountCR.setText(String.valueOf(numberFormat.format(c.getTable2AmountCr())));
             viewHolder.txtBalance.setText(String.valueOf(numberFormat.format(currentBalance[position])));
@@ -86,16 +85,15 @@ public class ArrayAdapterForLedgerReport extends ArrayAdapter<LedgerTransactionT
                     ledgerReport.setPreviousBalance(previousBalance);
 
                 }*/
-        }catch (Exception e){
-            Log.e("Error in Adapter",e.toString());
+        } catch (Exception e) {
+            Log.e("Error in Adapter", e.toString());
         }
-
 
 
         return convertView;
     }
 
-    private class ViewHolder{
+    private class ViewHolder {
         TextView txtDateAndName;
         TextView txtAmountDR;
         TextView txtAmountCR;

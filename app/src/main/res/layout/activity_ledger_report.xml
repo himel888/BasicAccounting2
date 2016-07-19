@@ -225,7 +225,7 @@
                         android:layout_marginTop="3dp"
                         android:background="#4A97BA"
                         android:padding="5dp"
-                        android:text="Opening Balance :"
+                        android:text="@string/txt_opening_balance"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />
@@ -263,7 +263,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="30"
                         android:padding="4dp"
-                        android:text="Date/CrossAcc"
+                        android:text="@string/column_heading_cross_account"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"/>
 
@@ -274,7 +274,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="22.5"
                         android:padding="4dp"
-                        android:text="DR"
+                        android:text="@string/column_heading_dr"
                         android:gravity="right"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"/>
@@ -285,7 +285,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="22.5"
                         android:padding="4dp"
-                        android:text="CR"
+                        android:text="@string/column_heading_cr"
                         android:gravity="right"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"/>
@@ -296,7 +296,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="25"
                         android:padding="4dp"
-                        android:text="Balance"
+                        android:text="@string/column_heading_balance"
                         android:gravity="right"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"/>
@@ -319,7 +319,7 @@
                         android:layout_marginTop="3dp"
                         android:background="#4A97BA"
                         android:padding="5dp"
-                        android:text="Closing Balance :"
+                        android:text="@string/txt_closing_balance"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"
                         android:textStyle="bold" />

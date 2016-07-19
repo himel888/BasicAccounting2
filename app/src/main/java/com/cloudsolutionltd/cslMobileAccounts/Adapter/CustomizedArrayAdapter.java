@@ -10,44 +10,45 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountTable;
 import com.cloudsolutionltd.cslMobileAccounts.R;
+import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountTable;
 
 import java.util.ArrayList;
 
 /**
  * Created by Mamun on 8/24/15.
  */
-public class  CustomizedArrayAdapter extends ArrayAdapter<ChartOfAccountTable> {
+public class CustomizedArrayAdapter extends ArrayAdapter<ChartOfAccountTable> {
 
 
     Activity con;
     ArrayList<ChartOfAccountTable> chartOfAccountList;
-    public CustomizedArrayAdapter(Context context,  ArrayList<ChartOfAccountTable> chartOfAccountList) {
-        super(context, R.layout.chart_of_account_list_item , chartOfAccountList);
+
+    public CustomizedArrayAdapter(Context context, ArrayList<ChartOfAccountTable> chartOfAccountList) {
+        super(context, R.layout.chart_of_account_list_item, chartOfAccountList);
 
         con = (Activity) context;
-        this.chartOfAccountList =chartOfAccountList;
+        this.chartOfAccountList = chartOfAccountList;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = null;
 
-        if(convertView == null){
+        if (convertView == null) {
             //Generate view
 
             LayoutInflater inflater = con.getLayoutInflater();
-            v = inflater.inflate(R.layout.chart_of_account_list_item,null);
+            v = inflater.inflate(R.layout.chart_of_account_list_item, null);
 
 
-        }else{
+        } else {
             v = convertView;
         }
-        if (position%2 == 0){
+        if (position % 2 == 0) {
             LinearLayout row = (LinearLayout) v.findViewById(R.id.row);
             row.setBackgroundColor(Color.parseColor("#FFEAF4FE"));
-        }else{
+        } else {
             LinearLayout row = (LinearLayout) v.findViewById(R.id.row);
             row.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }

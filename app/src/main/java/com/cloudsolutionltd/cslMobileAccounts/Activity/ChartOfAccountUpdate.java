@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,9 +14,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountTable;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 /**
  * Created by Kazi Abdullah Al Mamun on 8/31/15.
@@ -29,7 +30,7 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
     Button btnUpdate, btnDelete;
 
     //Data Source for Account Name, Account Type and Account Group Spinner
-    private static String[] type = {"Asset", "Liability", "Income","Expense" };
+    private static String[] type = {"Asset", "Liability", "Income", "Expense"};
     //private static String[] group = {"Group", "Transactional"};
     //String[][] accountNameId;
     //String[] accountName;
@@ -57,10 +58,10 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4A97DF")));
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         final ChartOfAccountCRUD crud = new ChartOfAccountCRUD(this);
-
 
 
         //Register activity component
@@ -120,12 +121,12 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
             public void onClick(View v) {
 
                 int result;
-                try{
-                    result = crud.deleteRow(table1Pid,table1AccountId);
-                    if (result == 1){
+                try {
+                    result = crud.deleteRow(table1Pid, table1AccountId);
+                    if (result == 1) {
                         Toast.makeText(ChartOfAccountUpdate.this, "Account delete successFul", Toast.LENGTH_SHORT).show();
                         finish();
-                    }else {
+                    } else {
 //                        new AlertDialog.Builder(getApplicationContext())
 //                                .setTitle("Delete entry")
 //                                .setMessage("You can't delete this Account head\n" +
@@ -150,7 +151,7 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
 
                         // Setting Dialog Message
                         alertDialog.setMessage("You can't delete this Account head\n" +
-                                       "cause you have several transaction under this Account head");
+                                "cause you have several transaction under this Account head");
 
                         // Setting Icon to Dialog
                         //alertDialog.setIcon(R.drawable.tick);
@@ -166,7 +167,7 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
                         // Showing Alert Message
                         alertDialog.show();
                     }
-                }catch(Exception e){
+                } catch (Exception e) {
                     System.out.print(e);
                 }
 
@@ -190,7 +191,7 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
                     //table.setTable1AccountGroup(spnAccountGroup.getSelectedItem().toString());
                     //table.setTable1Status(table1Status);
                     //Toast.makeText(getApplicationContext(),table.toString(),Toast.LENGTH_LONG).show();
-                    crud.updateRow(table,table1AccountId);
+                    crud.updateRow(table, table1AccountId);
                 } catch (Exception e) {
                     System.out.print(e);
                 }
@@ -206,9 +207,17 @@ public class ChartOfAccountUpdate extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        int id = item.getItemId();
 
-
+        if (android.R.id.home == id) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

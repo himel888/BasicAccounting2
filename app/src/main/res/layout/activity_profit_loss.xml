@@ -116,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Expense"
+                    android:text="@string/column_heading_expense"
                     android:background="#FF02468C"
                     android:padding="5dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:background="#FF02468C"
                     android:gravity="center"
-                    android:text="Income"
+                    android:text="@string/column_heading_income"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:padding="5dp"
                     android:textColor="#ffffff" />

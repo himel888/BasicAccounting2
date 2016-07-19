@@ -33,14 +33,14 @@
                 android:id="@+id/cslWebLink"
                 android:autoLink="web"
                 android:padding="4dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Use CSL Mobile Accounts professionally"
-                android:layout_marginTop="10dp"
-                android:id="@+id/slogan"
-                android:padding="5dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Use CSL Mobile Accounts professionally"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:id="@+id/slogan"-->
+                <!--android:padding="5dp"-->
+                <!--android:textAppearance="?android:attr/textAppearanceSmall"/>-->
 
 
             <Button
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/enter_btn"
                 android:id="@+id/btnEnter"
-                android:text="Enter"
+                android:text="@string/btn_enter"
                 android:textColor="#ffffff"
                 android:layout_marginTop="15dp"
                 android:padding="5dp"

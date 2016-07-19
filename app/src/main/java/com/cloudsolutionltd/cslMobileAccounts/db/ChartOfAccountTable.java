@@ -7,14 +7,14 @@ import java.io.Serializable;
  */
 public class ChartOfAccountTable implements Serializable {
 
-    private  int table1Pid ;
-    private  String table1AccountName;
-    private  int table1AccountId;
-    private  String table1AccountType;
+    private int table1Pid;
+    private String table1AccountName;
+    private int table1AccountId;
+    private String table1AccountType;
 
 
-
-    public ChartOfAccountTable(){}
+    public ChartOfAccountTable() {
+    }
 
     public ChartOfAccountTable(int table1Pid, String table1AccountName, int table1AccountId, String table1AccountType) {
         this.table1Pid = table1Pid;
@@ -31,8 +31,6 @@ public class ChartOfAccountTable implements Serializable {
     public void setTable1Pid(int table1Pid) {
         this.table1Pid = table1Pid;
     }
-
-
 
 
     public String getTable1AccountName() {
@@ -58,8 +56,6 @@ public class ChartOfAccountTable implements Serializable {
     public void setTable1AccountType(String table1AccountType) {
         this.table1AccountType = table1AccountType;
     }
-
-
 
 
     @Override

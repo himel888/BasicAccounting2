@@ -5,17 +5,15 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -25,10 +23,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cloudsolutionltd.cslMobileAccounts.FormatDate;
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,7 +47,7 @@ public class VoucherEntry extends AppCompatActivity {
     String[][] accountNameId;
     //String[] accountFromTo;
     ArrayList<String> accountFromTo;
-    int pidPair,accFromId, accToId;
+    int pidPair, accFromId, accToId;
     ArrayAdapter<String> accountFromAdapter, accountToAdapter;
     String date, selectedMonth, selectedDay;
 
@@ -78,9 +76,9 @@ public class VoucherEntry extends AppCompatActivity {
         navigationMenu.setDrawerListener(mDrawerToggle);
 
         menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
+                android.R.layout.simple_list_item_1, item);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when drawer is closed */
             public void onDrawerClosed(View view) {
@@ -91,7 +89,7 @@ public class VoucherEntry extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_select_menu));
                 supportInvalidateOptionsMenu();
             }
         };
@@ -106,7 +104,7 @@ public class VoucherEntry extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
+                if (position == 0) {
                     Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
@@ -217,8 +215,8 @@ public class VoucherEntry extends AppCompatActivity {
                     else if (spnAccountFrom.getSelectedItem().toString().equals(spnAccountTo.getSelectedItem().toString())) {
 
                         Toast.makeText(getApplicationContext(), "From and To account couldn't be same", Toast.LENGTH_LONG).show();
-                        ((TextView)spnAccountFrom.getSelectedView()).setTextColor(Color.YELLOW);
-                        ((TextView)spnAccountTo.getSelectedView()).setTextColor(Color.YELLOW);
+                        ((TextView) spnAccountFrom.getSelectedView()).setTextColor(Color.YELLOW);
+                        ((TextView) spnAccountTo.getSelectedView()).setTextColor(Color.YELLOW);
 
                     } else if (txtAmount.getText().toString().equals("")) {
 
@@ -228,8 +226,8 @@ public class VoucherEntry extends AppCompatActivity {
 
                         table.setTable2PidPair(pidPair = crud.getMaxPidPair());
                         table.setTable2TransactionDate(date);
-                        table.setTable2AccFrom(Integer.parseInt(accountNameId[spnAccountFrom.getSelectedItemPosition()+1][0]));
-                        table.setTable2AccTo(Integer.parseInt(accountNameId[spnAccountTo.getSelectedItemPosition()+1][0]));
+                        table.setTable2AccFrom(Integer.parseInt(accountNameId[spnAccountFrom.getSelectedItemPosition() + 1][0]));
+                        table.setTable2AccTo(Integer.parseInt(accountNameId[spnAccountTo.getSelectedItemPosition() + 1][0]));
                         table.setTable2AmountDr(Double.parseDouble(txtAmount.getText().toString()));
                         table.setTable2AmountCr(Double.parseDouble(txtAmount.getText().toString()));
                         table.setTable2Description(txtDescription.getText().toString());
@@ -259,7 +257,7 @@ public class VoucherEntry extends AppCompatActivity {
         });
     }
 
-    public void initialize(){
+    public void initialize() {
         txtDate = (TextView) findViewById(R.id.txtDate);
         txtDate.setText(FormatDate.getDateToShow(date));
         txtDate.setOnClickListener(new View.OnClickListener() {
@@ -319,8 +317,24 @@ public class VoucherEntry extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_all_transaction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        } else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

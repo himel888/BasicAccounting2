@@ -117,7 +117,7 @@
                 android:id="@+id/txtAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Amount"
+                android:hint="@string/hint_amount"
                 android:inputType="numberDecimal"/>
 
 
@@ -125,14 +125,14 @@
                 android:id="@+id/txtDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
+                android:hint="@string/hint_description"
                 android:inputType="text"/>
 
             <EditText
                 android:id="@+id/txtBankChecque"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Bank Cheque"
+                android:hint="@string/hint_bank_cheque"
                 android:inputType="text"
                 android:padding="7dp" />
 

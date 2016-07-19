@@ -1,33 +1,27 @@
 package com.cloudsolutionltd.cslMobileAccounts.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import com.cloudsolutionltd.cslMobileAccounts.R ;
+import com.cloudsolutionltd.cslMobileAccounts.R;
 
 public class Help extends AppCompatActivity {
 
     //WebView webHelp;
     private int httpStatusCode;
 
-    ListView drawerList;
-    DrawerLayout navigationMenu;
-    ArrayAdapter menuListAdapter;
+    //ListView drawerList;
+    //DrawerLayout navigationMenu;
+    //ArrayAdapter menuListAdapter;
     ActionBarDrawerToggle mDrawerToggle;
     String[] item;
 
@@ -40,6 +34,7 @@ public class Help extends AppCompatActivity {
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4A97DF")));
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         helpContent = (WebView) findViewById(R.id.helpContent);
         WebSettings webSettings = helpContent.getSettings();
@@ -47,100 +42,100 @@ public class Help extends AppCompatActivity {
         helpContent.loadUrl("file:///android_asset/mob/help_text.html");
 
 
-        item = getResources().getStringArray(R.array.drawer_list);
-        // mTitle  = mDrawerTitle = getTitle();
-
-        navigationMenu = (DrawerLayout) findViewById(R.id.navigationMenu);
-        drawerList = (ListView) findViewById(R.id.drawarList);
-
-        // Set the drawer toggle as the DrawerListener
-        navigationMenu.setDrawerListener(mDrawerToggle);
-
-        menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
-
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
-
-            /** Called when drawer is closed */
-            public void onDrawerClosed(View view) {
-                //highlightSelectedCountry();
-                getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_help));
-                supportInvalidateOptionsMenu();
-            }
-
-            /** Called when a drawer is opened */
-            public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
-
-                getSupportActionBar().setDisplayShowHomeEnabled(true);
-                supportInvalidateOptionsMenu();
-            }
-        };
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        // Setting event listener for the drawer
-        navigationMenu.setDrawerListener(mDrawerToggle);
-
-        drawerList.setAdapter(menuListAdapter);
-        drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 1) {
-                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 2) {
-                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 3) {
-                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 4) {
-                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 5) {
-                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 6) {
-                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 7) {
-                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                } else if (position == 8) {
-                    Intent intent = new Intent(getApplicationContext(), Help.class);
-                    startActivity(intent);
-                    navigationMenu.closeDrawers();
-                    finish();
-                }else if (position == 9) {
-                    navigationMenu.closeDrawers();
-                    Intent intent = new Intent(Intent.ACTION_MAIN);
-                    intent.addCategory(Intent.CATEGORY_HOME);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
-            }
-        });
+//        item = getResources().getStringArray(R.array.drawer_list);
+//        // mTitle  = mDrawerTitle = getTitle();
+//
+//        navigationMenu = (DrawerLayout) findViewById(R.id.navigationMenu);
+//        drawerList = (ListView) findViewById(R.id.drawarList);
+//
+//        // Set the drawer toggle as the DrawerListener
+//        navigationMenu.setDrawerListener(mDrawerToggle);
+//
+//        menuListAdapter = new ArrayAdapter(this,
+//                android.R.layout.simple_list_item_1,item);
+//
+//        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+//
+//            /** Called when drawer is closed */
+//            public void onDrawerClosed(View view) {
+//                //highlightSelectedCountry();
+//                getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_help));
+//                supportInvalidateOptionsMenu();
+//            }
+//
+//            /** Called when a drawer is opened */
+//            public void onDrawerOpened(View drawerView) {
+//                getSupportActionBar().setTitle("Select Menu");
+//
+//                getSupportActionBar().setDisplayShowHomeEnabled(true);
+//                supportInvalidateOptionsMenu();
+//            }
+//        };
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        // Setting event listener for the drawer
+//        navigationMenu.setDrawerListener(mDrawerToggle);
+//
+//        drawerList.setAdapter(menuListAdapter);
+//        drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if (position == 0){
+//                    Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 1) {
+//                    Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 2) {
+//                    Intent intent = new Intent(getApplicationContext(), AllTransaction.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 3) {
+//                    Intent intent = new Intent(getApplicationContext(), LedgerReport.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 4) {
+//                    Intent intent = new Intent(getApplicationContext(), IncomeExpenseStatement.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 5) {
+//                    Intent intent = new Intent(getApplicationContext(), ProfitLoss.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 6) {
+//                    Intent intent = new Intent(getApplicationContext(), BalanceSheet.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 7) {
+//                    Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                } else if (position == 8) {
+//                    Intent intent = new Intent(getApplicationContext(), Help.class);
+//                    startActivity(intent);
+//                    navigationMenu.closeDrawers();
+//                    finish();
+//                }else if (position == 9) {
+//                    navigationMenu.closeDrawers();
+//                    Intent intent = new Intent(Intent.ACTION_MAIN);
+//                    intent.addCategory(Intent.CATEGORY_HOME);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
 
 //        webHelp = (WebView) findViewById(R.id.helpWeb);
 //
@@ -174,26 +169,29 @@ public class Help extends AppCompatActivity {
 //        }
     }
 
-    public boolean isInternetConnected(){
+    public boolean isInternetConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED){
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
             return true;
-        }else
+        } else
             return false;
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
+//        mDrawerToggle.syncState();
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
+
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);

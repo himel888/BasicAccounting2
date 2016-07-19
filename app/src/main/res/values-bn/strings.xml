@@ -1,72 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">সিএসএল মোবাইল অ্যাকাউন্টস</string>
-
+    <string name="app_name">CSL-মোবাইল একাউন্টস</string>
+    <string name="chartOfAccount">একাউন্ট লিস্ট</string>
+    <string name="title_activity_chart_of_account_input_form">একাউন্ট যোগ</string>
+    <string name="title_activity_chart_of_account">একাউন্ট লিস্ট</string>
     <string name="initial_item">None</string>
-    <string name="btnSearch">অনুসন্ধান</string>
+    <string name="title_activity_chart_of_account_update">একাউন্ট পরিবর্তন</string>
+    <string name="title_activity_voucher_entry">ভাউচার এন্ট্রি</string>
+    <string name="title_activity_ledger_report">লেজার রিপোর্ট</string>
+    <string name="title_activity_all_transaction">সকল লেনদেন লিস্ট</string>
+    <string name="title_activity_transaction_details">ভাউচারের বিস্তারিত</string>
+    <string name="title_activity_income_expense">আয়-ব্যায়</string>
+    <string name="title_activity_profit_loss">লাভ-ক্ষতি</string>
+    <string name="title_activity_Balance_sheet">ফাইনাল রিপোর্ট</string>
+    <string name="title_activity_help">সাহায্য/Help</string>
+    <string name="btnSearch">খুজুন</string>
     <string name="btnSave">সংরক্ষণ করুন</string>
-    <string name="Update">হালনাগাদ</string>
-    <string name="Delete">মুছে ফেলা</string>
-    <string name="help_menu_title">সাহায্য</string>
-    <string name="settings_menu_title">সেটিংস</string>
-    <string name="csl_web_link">www.cloud-aps.com
-        <a href="www.cloud-aps.com" target="_top"></a></string>
-    <string name="help">সাহায্য</string>
-    <string name="settings_title">সেটিংস</string>
-    <string name="voucher_entry_help">
-            1. Choose account from which are basically CR account - AccFrom (CR):\n\n
-        2. Choose account to which are DR account - AccTo (DR):\n\n
-        3. Fill all other information about your respective transaction.\n\n
-        4. Tap save to save your transaction.\n\n
-            You can create, update and delete account head from chart of account section which are located
-        in the settings menu section top right of your application.</string>
-
-    <string name="all_transaction_help">1. Choose From date.\n2. Choose to date.\n3. Tap search button.\n\n
-            # After taping search button You will see all transaction between from date and to date.\n</string>
-    <string name="drawer_open">ড্রয়ারের খোলা</string>
-    <string name="drawer_close">ড্রয়ারের বন্ধ</string>
-    <string name="lblFrom">হইতে :</string>
-    <string name="lblTo">থেকে:</string>
+    <string name="title_activity_csl_home">Cloud Solution Ltd.</string>
+    <string name="Update">পরিবর্তন করুন</string>
+    <string name="Delete">মুছে ফেলুন</string>
+    <string name="help_menu_title">সাহায্য/Help</string>
+    <string name="settings_menu_title">সেটিংস/Settings</string>
+    <string name="csl_web_link">www.cloudsolutionltd.com
+         <a href="www.cloudsolutionltd.com" target="_top"></a></string>
+    <string name="help">সাহায্য/Help</string>
+    <string name="settings_title">সেটিংস/Setting</string>
+    <string name="voucher_entry_help">...</string>
+    <string name="all_transaction_help">...</string>
+    <string name="drawer_open">মেনু খুলুন</string>
+    <string name="drawer_close">মেনু বন্ধ করুন</string>
+    <string name="lblFrom">থেকে: </string>
+    <string name="lblTo">পর্যন্ত: </string>
+    <string name="lblDate">তারিখ: </string>
+    <string name="lblAccFrom">হিসাব থেকে (Cr)</string>
+    <string name="lblAccTo">হিসাবে (Dr)</string>
+    <string name="lblAccName">একাউন্টের নাম: </string>
+    <string name="ledgerReportSuggetion">একাউন্ট হেড নির্বাচন করুন \n তারিখ সমুহ সিলেক্ট করুন \n সার্চ বাটনে ক্লিক করুন</string>
+    <string name="radioIncome">আয় রিপোর্ট</string>
+    <string name="radioExpense">ব্যায় রিপোর্ট</string>
+    <string name="incomeExpenseSuggetion">হিসাবের টাইপ সিলেক্ট করুন (আয় অথবা ব্যায়)\n তারিখ সমুহ সিলেক্ট করুন \n সার্চ বাটনে ক্লিক করুন</string>
+    <string name="profitLossSuggetion">তারিখ সমুহ সিলেক্ট করুন \n সার্চ বাটনে ক্লিক করুন</string>
+    <string name="balanceSheetSuggetion">তারিখ সমুহ সিলেক্ট করুন \n সার্চ বাটনে ক্লিক করুন</string>
+    <string name="btnAdd">যোগ করুন</string>
+    <string name="lblAccType">প্রকার</string>
+    <string name="hintAccountId">একাউন্টের আইডি</string>
+    <string name="hintAccountName">একাউন্টের নাম</string>
+    <string name="btnBackup">ডাটা সংরক্ষন করুন</string>
+    <string name="btnRestore">ডাটা পুনরুদ্ধার করুন</string>
+    <string name="btnScheduler">পরিকল্পনা নোট</string>
+    <string name="column_heading_account">একাউন্ট নাম</string>
+    <string name="column_heading_date">তারিখ</string>
+    <string name="column_heading_amount">পরিমান</string>
+    <string name="hint_amount">পরিমান</string>
+    <string name="hint_description">ভাউচারের বর্ননা</string>
+    <string name="hint_bank_cheque">চেকের বর্ননা</string>
+    <string name="btn_enter"> ভিতরে প্রবেশ করুন</string>
+    <string name="column_heading_account_name">একাউন্টের নাম</string>
+    <string name="column_heading_account_type">টাইপ</string>
+    <string name="column_heading_account_id">আইডি</string>
+    <string name="txt_language">ভাষা/Language</string>
+    <string name="column_heading_total_amount">মোট পরিমান</string>
+    <string name="column_heading_income">আয়</string>
+    <string name="column_heading_expense">ব্যায়</string>
+    <string name="column_heading_total">সর্বমোট</string>
+    <string name="column_heading_cross_account">তারিখ/একাউন্ট</string>
+    <string name="column_heading_dr">Dr</string>
+    <string name="column_heading_cr">Cr</string>
+    <string name="column_heading_balance">ব্যালান্স</string>
+    <string name="txt_opening_balance">শুরুর হিসাব পরিমান: </string>
+    <string name="txt_closing_balance">শেষের হিসাব পরিমান: </string>
+    <string name="column_heading_asset">সম্পদ</string>
+    <string name="column_heading_liabilities">দেনা</string>
+    <string name="column_heading_summary">সারাংশ</string>
+    <string name="txt_total_asset">সর্বমোট সম্পদ:</string>
+    <string name="txt_total_liability">সর্বমোট দেনা:</string>
+    <string name="txt_profit">লাভের পরিমান:</string>
+    <string name="txt_loss">ক্ষতির পরিমান:</string>
 
     <string-array name="drawer_list">
-        <item>Home</item>
-        <item>Voucher Entry</item>
-        <item>All Transaction</item>
-        <item>Ledger Report</item>
-        <item>Income/Expense</item>
-        <item>Profit/Loss</item>
-        <item>Balance Sheet</item>
-        <item>Chart Of Account</item>
-        <item>Exit</item>
+        <item>হোম</item>
+        <item>ভাউচার এন্ট্রি</item>
+        <item>সকল এন্ট্রি রিপোর্ট</item>
+        <item>লেজার রিপোর্ট</item>
+        <item>আয়/খরচের রিপোর্ট</item>
+        <item>লাভ/খতির রিপোর্ট</item>
+        <item>ফাইনাল রিপোর্ট</item>
+        <item>একাউন্ট তালিকা</item>
+        <item>বাহির</item>
     </string-array>
 
     <string-array name="language_list">
-        <item>Bangla</item>
         <item>English</item>
-        <item>Hindi</item>
+        <item>বাংলা</item>
+        <item>हिंदी</item>
     </string-array>
 
     <string-array name="language_code">
-        <item>bn</item>
         <item>en</item>
+        <item>bn</item>
         <item>hi</item>
     </string-array>
 
     <string name="banner_ad_unit_id">ca-app-pub-2449529566292304/5657530676</string>
-
-
     <color name="blue">#003399</color>
-    <string name="lblDate">তারিখ:</string>
-    <string name="balanceSheetSuggetion">তারিখ নির্বাচন করুন, \n তারপর সার্চ বাটনে টোকা নিজ নিজ তারিখ পরিসীমা জন্য ব্যালেন্স রিপোর্ট পেতে</string>
-    <string name="btnAdd">তারিখ নির্বাচন করুন, \ তারপর সার্চ বাটনে টোকা নিজ নিজ তারিখ পরিসীমা জন্য ব্যালেন্স রিপোর্ট পেতে</string>
-    <string name="btnBackup">ব্যাক আপ</string>
-    <string name="btnRestore">প্রত্যর্পণ করা</string>
-    <string name="btnScheduler">পরিকল্পনাকারী</string>
-    <string name="hintAccountId">অ্যাকাউন্ট আইডি</string>
-    <string name="hintAccountName">হিসাবের নাম</string>
-    <string name="incomeExpenseSuggetion">আয় বা ব্যয়ের \ নন্দ আপনার তারিখ পরিসীমা উল্লেখ তারপর সার্চ বাটনে টোকা রিপোর্ট দেখতে.</string>
-    <string name="profitLossSuggetion">আপনার তারিখ পরিসীমা প্রথম \ সেট এবং তারপর সার্চ বাটনে টোকা রিপোর্ট দেখতে.</string>
-    <string name="radioIncome">আয়</string>
-    <string name="radioExpense">খরচ</string>
-    <string name="ledgerReportSuggetion">অ্যাকাউন্ট মাথা বেছে নিন \n আপনার তারিখ পরিসর \n সেট এবং তারপর সার্চ বাটনে টোকা রিপোর্ট দেখতে.</string>
+    <string name="title_select_menu">মেনু</string>
 </resources>

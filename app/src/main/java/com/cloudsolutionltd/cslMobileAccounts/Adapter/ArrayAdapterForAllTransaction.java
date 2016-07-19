@@ -11,10 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
-import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
 import com.cloudsolutionltd.cslMobileAccounts.FormatDate;
 import com.cloudsolutionltd.cslMobileAccounts.R;
+import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
+import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class ArrayAdapterForAllTransaction extends ArrayAdapter<LedgerTransactio
 
         LedgerTransactionTable c = voucherEntryList.get(position);
         try {
-            if (position%2 == 0)
+            if (position % 2 == 0)
                 viewHolder.row.setBackgroundColor(Color.parseColor("#FFEAF4FE"));
             else
                 viewHolder.row.setBackgroundColor(Color.parseColor("#FFFFFF"));
@@ -81,7 +81,7 @@ public class ArrayAdapterForAllTransaction extends ArrayAdapter<LedgerTransactio
         return v;
     }
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView txtAccountToName;
         TextView txtTransactionDate;
         TextView txtAmount;

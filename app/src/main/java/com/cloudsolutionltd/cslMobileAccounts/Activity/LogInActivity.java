@@ -4,9 +4,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -32,7 +32,7 @@ public class LogInActivity extends AppCompatActivity {
         initializeComponent();
     }
 
-    private void initializeComponent(){
+    private void initializeComponent() {
 
         eTxtPin = (EditText) findViewById(R.id.eTxtPin);
         txtCreatePin = (TextView) findViewById(R.id.txtCreatePin);
@@ -41,7 +41,7 @@ public class LogInActivity extends AppCompatActivity {
         textInputLayoutPin = (TextInputLayout) findViewById(R.id.textInputLayoutPin);
     }
 
-    public void txtCreatePinOnClick(View view){
+    public void txtCreatePinOnClick(View view) {
         AlertDialog.Builder createPinDialog = new AlertDialog.Builder(this);
         createPinDialog.setTitle("Create pin.");
 

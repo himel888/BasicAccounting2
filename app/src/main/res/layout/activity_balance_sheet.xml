@@ -116,7 +116,7 @@
                 android:background="#FF024589"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Asset"
+                android:text="@string/column_heading_asset"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#ffffff"
                 android:visibility="gone" />
@@ -134,7 +134,7 @@
                 android:background="#FF024589"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Liabilities"
+                android:text="@string/column_heading_liabilities"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#ffffff"
                 android:visibility="gone" />
@@ -152,7 +152,7 @@
                 android:background="#FF024589"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Summary"
+                android:text="@string/column_heading_summary"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#ffffff"
                 android:layout_marginTop="8dp"
@@ -171,7 +171,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:text="Total Asset: "
+                    android:text="@string/txt_total_asset"
                     android:textColor="#000000"
                     android:padding="5dp"/>
 
@@ -201,7 +201,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:text="Total Liability: "
+                    android:text="@string/txt_total_liability"
                     android:textColor="#000000"
                     android:padding="5dp"/>
                 <TextView

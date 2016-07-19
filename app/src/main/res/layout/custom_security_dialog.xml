@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your pin."
+        android:background="#009688"
+        android:padding="5dp"
+        android:textColor="#FFFFFF"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eTxtUserPin"
+        android:hint="4 digit pin."
+        android:padding="15dp"
+        android:layout_marginTop="5dp"
+        android:maxLength="4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtErrorMsg"
+        android:textColor="#F44336"
+        android:text="Hello world!"
+        android:padding="5dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_forgot_pin"
+        android:padding="10dp"
+        android:text="Forgot pin?"
+        android:gravity="end"
+        android:textColor="#009688"/>
+
+</LinearLayout>

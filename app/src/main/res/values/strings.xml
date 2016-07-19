@@ -57,6 +57,35 @@
     <string name="btnBackup">Back up</string>
     <string name="btnRestore">Restore</string>
     <string name="btnScheduler">Scheduler</string>
+    <string name="column_heading_account">Account</string>
+    <string name="column_heading_date">Date</string>
+    <string name="column_heading_amount">Amount</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_bank_cheque">Bank Cheque</string>
+    <string name="btn_enter">Enter</string>
+    <string name="column_heading_account_name">Account Name</string>
+    <string name="column_heading_account_type">Type</string>
+    <string name="column_heading_account_id">Id</string>
+    <string name="txt_language">Language</string>
+    <string name="column_heading_total_amount">Total Amount</string>
+    <string name="column_heading_income">Income</string>
+    <string name="column_heading_expense">Expense</string>
+    <string name="column_heading_total">Total </string>
+    <string name="column_heading_cross_account">Date/CrossAcc</string>
+    <string name="column_heading_dr">DR</string>
+    <string name="column_heading_cr">CR</string>
+    <string name="column_heading_balance">Balance</string>
+    <string name="txt_opening_balance">Opening Balance :</string>
+    <string name="txt_closing_balance">Closing Balance :</string>
+    <string name="column_heading_asset">Asset</string>
+    <string name="column_heading_liabilities">Liabilities</string>
+    <string name="column_heading_summary">Summary</string>
+    <string name="txt_total_asset">Total Asset:</string>
+    <string name="txt_total_liability">Total Liability:</string>
+    <string name="txt_profit">Profit:</string>
+    <string name="txt_loss">Loss:</string>
+    <string name="title_select_menu">Select menu</string>
 
     <string-array name="drawer_list">
         <item>Home</item>
@@ -83,6 +112,12 @@
     </string-array>
 
     <string name="banner_ad_unit_id">ca-app-pub-2449529566292304/5657530676</string>
+    <string name="btn_voucher_entry">Voucher Entry</string>
+    <string name="btn_all_transaction">All Transaction</string>
+    <string name="btn_ledger_report">Ledger Report</string>
+    <string name="btn_income_expense">Income/Expense</string>
+    <string name="btn_profit_loss">Profit/Loss</string>
+    <string name="btn_balance_Sheet">Balance Sheet</string>
 
 
     <color name="blue">#003399</color>

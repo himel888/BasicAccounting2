@@ -135,7 +135,7 @@
                     android:layout_weight=".4"
                     android:gravity="left"
                     android:paddingLeft="5dp"
-                    android:text="Account"
+                    android:text="@string/column_heading_account"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".3"
                     android:gravity="center"
-                    android:text="Date"
+                    android:text="@string/column_heading_date"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
@@ -158,7 +158,7 @@
                     android:layout_weight=".3"
                     android:gravity="right"
                     android:paddingRight="5dp"
-                    android:text="Amount"
+                    android:text="@string/column_heading_amount"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />

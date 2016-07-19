@@ -47,7 +47,6 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String table2Status = "status";
 
 
-
 //    private String createTable1 = "create table " + table1 + "(" +
 //            table1Pid + " INTEGER PRIMARY KEY," +
 //            table1Pid_parent + " INTEGER," +
@@ -95,7 +94,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public SQLiteDatabase getDataBase(){
+    public SQLiteDatabase getDataBase() {
         return this.dataBase;
     }
 

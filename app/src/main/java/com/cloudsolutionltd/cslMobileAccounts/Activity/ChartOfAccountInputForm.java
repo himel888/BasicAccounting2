@@ -14,9 +14,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountTable;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 public class ChartOfAccountInputForm extends AppCompatActivity {
 
@@ -30,18 +30,15 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
     public static int pidParent;
 
 
-
-
     //View object for Account Name, Account Type and Account Group
     private Spinner spntype;
-    private Spinner spnGroup,spnParent;
+    private Spinner spnGroup, spnParent;
 
 
     //Adapter for Account type and Account Group
     private ArrayAdapter<String> accountTypeAdapter, accountGroupAdapter;
     private ArrayAdapter<String> parentAdapter;
     Button btnSave;
-
 
 
     @Override
@@ -51,16 +48,16 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4A97DF")));
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         final ChartOfAccountCRUD crud = new ChartOfAccountCRUD(this);
-
 
 
         //final EditText txtPid = (EditText) findViewById(R.id.txtPid);
         final EditText txtAccountName = (EditText) findViewById(R.id.txtAccountName);
         final EditText txtAccountId = (EditText) findViewById(R.id.txtAccountId);
         btnSave = (Button) findViewById(R.id.btnSave);
-       // spnParent = (Spinner) findViewById(R.id.spnParant);
+        // spnParent = (Spinner) findViewById(R.id.spnParant);
         spntype = (Spinner) findViewById(R.id.spnType);
 //        spnGroup = (Spinner) findViewById(R.id.spnGroup);
 //        try {
@@ -76,9 +73,7 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
 //        }
 
 
-
-
-        accountTypeAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_row_add_account_head,type);
+        accountTypeAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_row_add_account_head, type);
         //accountGroupAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_activated_1,group);
 
 
@@ -100,11 +95,6 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         //Listener for Save button
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,10 +110,9 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
 //                }
 
 
-
                 try {
                     //abc.setTable1Pid(5);
-                   // abc.setTable1Pid_parent(pidParent);
+                    // abc.setTable1Pid_parent(pidParent);
                     abc.setTable1AccountName(txtAccountName.getText().toString());
                     abc.setTable1AccountId(Integer.parseInt(txtAccountId.getText().toString()));
                     abc.setTable1AccountType(spntype.getSelectedItem().toString());
@@ -134,17 +123,17 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
                 }
 
 
-                if(abc.getTable1AccountName().length() == 0){
+                if (abc.getTable1AccountName().length() == 0) {
                     txtAccountName.setError("Write Account name");
 
-                }else if (abc.getTable1AccountId() == 0){
+                } else if (abc.getTable1AccountId() == 0) {
                     txtAccountId.setError("Give Account Id");
 
-                }else {
+                } else {
                     long result = crud.addInChartOfAccount(abc);
-                    if (result > 0){
+                    if (result > 0) {
 
-                        Toast.makeText(getApplicationContext(),"Account head created",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Account head created", Toast.LENGTH_SHORT).show();
                         finish();
                         //txtAccountName.setText("");
                         //txtAccountId.setText("");
@@ -180,6 +169,9 @@ public class ChartOfAccountInputForm extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        } else if (android.R.id.home == id) {
+            onBackPressed();
             return true;
         }
 

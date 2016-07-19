@@ -17,9 +17,9 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.cloudsolutionltd.cslMobileAccounts.Adapter.CustomizedArrayAdapter;
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountTable;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 import java.util.ArrayList;
 
@@ -60,9 +60,9 @@ public class ChartOfAccount extends AppCompatActivity {
         navigationMenu.setDrawerListener(mDrawerToggle);
 
         menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
+                android.R.layout.simple_list_item_1, item);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when drawer is closed */
             public void onDrawerClosed(View view) {
@@ -73,8 +73,7 @@ public class ChartOfAccount extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
-
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_select_menu));
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
                 supportInvalidateOptionsMenu();
             }
@@ -129,7 +128,7 @@ public class ChartOfAccount extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), ChartOfAccount.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
-                }else if (position == 8) {
+                } else if (position == 8) {
                     navigationMenu.closeDrawers();
                     finish();
                     Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -177,8 +176,8 @@ public class ChartOfAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               Intent intent = new Intent(getApplicationContext(), ChartOfAccountInputForm.class);
-               startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), ChartOfAccountInputForm.class);
+                startActivity(intent);
 
             }
         });
@@ -225,17 +224,17 @@ public class ChartOfAccount extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_chart_of_account,menu);
+        getMenuInflater().inflate(R.menu.menu_chart_of_account, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        if (mDrawerToggle.onOptionsItemSelected(item)) {
-//            return true;
-//        }
 
-        if (item.getItemId() == R.id.action_add_chart_of_account){
+        int id = item.getItemId();
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        } else if (id == R.id.action_add_chart_of_account) {
             Intent intent = new Intent(getApplicationContext(), ChartOfAccountInputForm.class);
             startActivity(intent);
         }

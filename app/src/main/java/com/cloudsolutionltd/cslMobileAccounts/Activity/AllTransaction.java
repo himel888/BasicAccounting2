@@ -7,7 +7,6 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -79,9 +78,9 @@ public class AllTransaction extends AppCompatActivity {
         navigationMenu.setDrawerListener(mDrawerToggle);
 
         menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
+                android.R.layout.simple_list_item_1, item);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when drawer is closed */
             public void onDrawerClosed(View view) {
@@ -92,7 +91,7 @@ public class AllTransaction extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_select_menu));
 
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
                 supportInvalidateOptionsMenu();
@@ -110,7 +109,7 @@ public class AllTransaction extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position == 0){
+                if (position == 0) {
                     Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
@@ -212,7 +211,7 @@ public class AllTransaction extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), VoucherEntry.class);
                 startActivity(intent);
-                    finish();
+                finish();
             }
         });
         txtFromDate.setText(FormatDate.getDateToShow(String.valueOf(year) + "/" + selectedMonth + "/" + "01"));
@@ -343,13 +342,13 @@ public class AllTransaction extends AppCompatActivity {
 
                     date = String.valueOf(year) + "/" + selectedMonth + "/" + selectedDay;
                     txtFromDate.setText(FormatDate.getDateToShow(date));
-                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0){
+                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0) {
 
                         txtFromDate.setTextColor(Color.RED);
                         txtToDate.setTextColor(Color.RED);
 
 
-                    }else{
+                    } else {
                         txtFromDate.setTextColor(Color.WHITE);
                         txtToDate.setTextColor(Color.WHITE);
 
@@ -379,13 +378,13 @@ public class AllTransaction extends AppCompatActivity {
 
                     date = String.valueOf(year) + "/" + selectedMonth + "/" + selectedDay;
                     txtToDate.setText(FormatDate.getDateToShow(date));
-                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0){
+                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0) {
 
                         txtFromDate.setTextColor(Color.RED);
                         txtToDate.setTextColor(Color.WHITE);
 
 
-                    }else{
+                    } else {
                         txtFromDate.setTextColor(Color.WHITE);
                         txtToDate.setTextColor(Color.WHITE);
 
@@ -403,8 +402,24 @@ public class AllTransaction extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_all_transaction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        } else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

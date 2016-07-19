@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,9 +25,9 @@ import android.widget.Toast;
 
 import com.cloudsolutionltd.cslMobileAccounts.Adapter.AdapterForIncomeExpenseStatement;
 import com.cloudsolutionltd.cslMobileAccounts.FormatDate;
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.Utility;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -80,9 +80,9 @@ public class ProfitLoss extends AppCompatActivity {
         navigationMenu.setDrawerListener(mDrawerToggle);
 
         menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
+                android.R.layout.simple_list_item_1, item);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when drawer is closed */
             public void onDrawerClosed(View view) {
@@ -93,8 +93,7 @@ public class ProfitLoss extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
-
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_select_menu));
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
                 supportInvalidateOptionsMenu();
             }
@@ -110,7 +109,7 @@ public class ProfitLoss extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
+                if (position == 0) {
                     Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
@@ -211,16 +210,15 @@ public class ProfitLoss extends AppCompatActivity {
 
                         for (int i = 0; i < statement.size(); i++)
                             totalExpense += Double.valueOf(statement.get(i)[1]);
-                        
+
 
                         adapterForExpense = new AdapterForIncomeExpenseStatement(ProfitLoss.this, statement);
                         listExpense.setAdapter(adapterForExpense);
 
                         utility.setListViewHeightBasedOnChildren(listExpense);
                         //txtTotalAmount.setText("Total amount: " + String.valueOf(totalAmount));
-                    }
-                    else
-                        Toast.makeText(getApplicationContext(),"No such data found", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "No such data found", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("ListView Error: ", e.toString());
                 }
@@ -233,7 +231,7 @@ public class ProfitLoss extends AppCompatActivity {
 
                         txtIncomelistHeading.setVisibility(View.VISIBLE);
                         for (int i = 0; i < statement.size(); i++)
-                        totalIncome += Double.valueOf(statement.get(i)[1]);
+                            totalIncome += Double.valueOf(statement.get(i)[1]);
 
                         totalIncome *= -1;
 
@@ -241,9 +239,8 @@ public class ProfitLoss extends AppCompatActivity {
                         listIncome.setAdapter(adapterForIncome);
                         utility.setListViewHeightBasedOnChildren(listIncome);
                         //txtTotalAmount.setText("Total amount: " + String.valueOf(totalAmount));
-                    }
-                    else
-                        Toast.makeText(getApplicationContext(),"No such data found", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "No such data found", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("ListView Error: ", e.toString());
                 }
@@ -253,10 +250,10 @@ public class ProfitLoss extends AppCompatActivity {
                 txtReportHint.setVisibility(View.GONE);
                 reportBody.setVisibility(View.VISIBLE);
 
-                if(profitOrLoss < 0)
+                if (profitOrLoss < 0)
                     txtTotalAmount.setText("Loss: " + numberFormat.format(profitOrLoss * -1));
                 else
-                    txtTotalAmount.setText("Profit: " +  numberFormat.format(profitOrLoss));
+                    txtTotalAmount.setText("Profit: " + numberFormat.format(profitOrLoss));
 
                 profitOrLoss = 0.0;
                 totalExpense = 0.0;
@@ -267,10 +264,9 @@ public class ProfitLoss extends AppCompatActivity {
         });
 
 
-
     }
 
-    private void initialize(){
+    private void initialize() {
 
         txtFromDate = (TextView) findViewById(R.id.txtFromDate);
         txtToDate = (TextView) findViewById(R.id.txtToDate);
@@ -357,8 +353,24 @@ public class ProfitLoss extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_all_transaction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        } else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

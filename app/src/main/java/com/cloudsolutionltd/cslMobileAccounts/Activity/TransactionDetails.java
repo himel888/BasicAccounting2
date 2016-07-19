@@ -4,8 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
 import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
-import com.cloudsolutionltd.cslMobileAccounts.R;
 
 public class TransactionDetails extends AppCompatActivity {
 
@@ -39,7 +39,7 @@ public class TransactionDetails extends AppCompatActivity {
         initialize();
         final LedgerTransactionCRUD ledgerTransactionCRUD = new LedgerTransactionCRUD(this);
         transactionDetails = (LedgerTransactionTable) getIntent().getSerializableExtra("transactionDetails");
-        adapterPosition = getIntent().getIntExtra("adapterPosition",0);
+        adapterPosition = getIntent().getIntExtra("adapterPosition", 0);
 
         txtDate.setText(transactionDetails.getTable2TransactionDate());
         txtAccountFrom.setText(ledgerTransactionCRUD.getAccountName(transactionDetails.getTable2AccFrom()));
@@ -109,16 +109,16 @@ public class TransactionDetails extends AppCompatActivity {
                 transactionDetails.setTable2Description(txtDescription.getText().toString());
                 transactionDetails.setTable2BankCheque(txtBankCheque.getText().toString());
                 int a = ledgerTransactionCRUD.updatePairedRow(transactionDetails);
-                Log.d("Check Update",String.valueOf(a));
+                Log.d("Check Update", String.valueOf(a));
                 Log.d("Check id", transactionDetails.getTable2Pid() + "  " + transactionDetails.getTable2PidPair());
-                if (a == 2){
-                    Toast.makeText(getApplicationContext(),"Update successful.", Toast.LENGTH_SHORT).show();
+                if (a == 2) {
+                    Toast.makeText(getApplicationContext(), "Update successful.", Toast.LENGTH_SHORT).show();
                     AllTransaction.voucherEntryList.remove(adapterPosition);
                     AllTransaction.voucherEntryList.add(adapterPosition, transactionDetails);
                     AllTransaction.adapter.notifyDataSetChanged();
                     finish();
-                }else
-                    Toast.makeText(getApplicationContext(),"Update failed", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getApplicationContext(), "Update failed", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -132,7 +132,7 @@ public class TransactionDetails extends AppCompatActivity {
 
     }
 
-    private void initialize(){
+    private void initialize() {
         txtAccountFrom = (EditText) findViewById(R.id.txtAccountFrom);
         txtAccountTo = (EditText) findViewById(R.id.txtAccountTo);
         txtAmount = (EditText) findViewById(R.id.txtAmount);

@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
@@ -25,13 +24,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountCRUD;
-import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
-import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
 import com.cloudsolutionltd.cslMobileAccounts.Adapter.ArrayAdapterForLedgerReport;
 import com.cloudsolutionltd.cslMobileAccounts.FormatDate;
 import com.cloudsolutionltd.cslMobileAccounts.R;
 import com.cloudsolutionltd.cslMobileAccounts.Utility;
+import com.cloudsolutionltd.cslMobileAccounts.db.ChartOfAccountCRUD;
+import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionCRUD;
+import com.cloudsolutionltd.cslMobileAccounts.db.LedgerTransactionTable;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class LedgerReport extends AppCompatActivity {
     //Variable for Activity content
     String[][] accountNameId;
     ArrayList<String> accountName;
-    int year, month, day,accountId;
+    int year, month, day, accountId;
     double[] currentBalance;
     String date, selectedMonth, selectedDay;
     TextView txtFromDate;
@@ -95,9 +94,9 @@ public class LedgerReport extends AppCompatActivity {
         txtClosingBalance = (TextView) findViewById(R.id.txtClosingBalance);
 
         menuListAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,item);
+                android.R.layout.simple_list_item_1, item);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer , R.string.drawer_open,R.string.drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, navigationMenu, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when drawer is closed */
             public void onDrawerClosed(View view) {
@@ -108,7 +107,7 @@ public class LedgerReport extends AppCompatActivity {
 
             /** Called when a drawer is opened */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle("Select Menu");
+                getSupportActionBar().setTitle(getResources().getString(R.string.title_select_menu));
 
                 getSupportActionBar().setDisplayShowHomeEnabled(true);
                 supportInvalidateOptionsMenu();
@@ -125,7 +124,7 @@ public class LedgerReport extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
+                if (position == 0) {
                     Intent intent = new Intent(getApplicationContext(), BasicAccounting.class);
                     startActivity(intent);
                     navigationMenu.closeDrawers();
@@ -203,7 +202,7 @@ public class LedgerReport extends AppCompatActivity {
 
         final Spinner spnAccountName = (Spinner) findViewById(R.id.spnAccountName);
         txtFromDate = (TextView) findViewById(R.id.txtFromDate);
-        txtFromDate.setText(FormatDate.getDateToShow(String.valueOf(year) + "/" + selectedMonth + "/" +"01"));
+        txtFromDate.setText(FormatDate.getDateToShow(String.valueOf(year) + "/" + selectedMonth + "/" + "01"));
         txtFromDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -250,16 +249,16 @@ public class LedgerReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (spnAccountName.getSelectedItem().toString().equals("")){
-                    ((TextView)spnAccountName.getSelectedView()).setError("");
+                if (spnAccountName.getSelectedItem().toString().equals("")) {
+                    ((TextView) spnAccountName.getSelectedView()).setError("");
 
 
-                }else if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0){
-                    Toast.makeText(getApplicationContext(),"From date should less then To date", Toast.LENGTH_SHORT).show();
-                }else {
+                } else if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0) {
+                    Toast.makeText(getApplicationContext(), "From date should less then To date", Toast.LENGTH_SHORT).show();
+                } else {
                     listLedger.setAdapter(null);
                     openingBalance = ledgerTransactionCRUD.getPreviousBalance(FormatDate.getDateToSave(txtFromDate.getText().toString()),
-                            Integer.parseInt(accountNameId[spnAccountName.getSelectedItemPosition()+1][0]));
+                            Integer.parseInt(accountNameId[spnAccountName.getSelectedItemPosition() + 1][0]));
 
                     //txtAccountInfo.setText("Ledger of " + accountNameId[spnAccountName.getSelectedItemPosition()][1] +
                     //"\nFrom " + txtFromDate.getText() +
@@ -271,7 +270,7 @@ public class LedgerReport extends AppCompatActivity {
                     txtOpeningBalance.setText(String.valueOf(numberFormat.format(openingBalance)));
                     //txtopeningBalance.setVisibility(View.VISIBLE);
 
-                    voucherEntryList = ledgerTransactionCRUD.getVoucherEntryForSpecificAccount(Integer.parseInt(accountNameId[spnAccountName.getSelectedItemPosition()+1][0]),
+                    voucherEntryList = ledgerTransactionCRUD.getVoucherEntryForSpecificAccount(Integer.parseInt(accountNameId[spnAccountName.getSelectedItemPosition() + 1][0]),
                             FormatDate.getDateToSave(String.valueOf(txtFromDate.getText())), FormatDate.getDateToSave(String.valueOf(txtToDate.getText())));
                     if (voucherEntryList == null || voucherEntryList.size() < 1) {
                         Toast.makeText(getApplicationContext(), "! No record found", Toast.LENGTH_LONG).show();
@@ -280,18 +279,18 @@ public class LedgerReport extends AppCompatActivity {
 
 
                             txtFromDate.setTextColor(Color.WHITE);
-                            Toast.makeText(getApplicationContext(), "! Ledger report From " + txtFromDate.getText() + " To " + txtToDate.getText() , Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "! Ledger report From " + txtFromDate.getText() + " To " + txtToDate.getText(), Toast.LENGTH_LONG).show();
                             currentBalance = new double[voucherEntryList.size()];
-                            for (int i = 0; i < voucherEntryList.size(); i++){
+                            for (int i = 0; i < voucherEntryList.size(); i++) {
                                 if (i == 0)
                                     currentBalance[i] = openingBalance + (voucherEntryList.get(i).getTable2AmountDr() - voucherEntryList.get(i).getTable2AmountCr());
                                 else
-                                    currentBalance[i] = currentBalance[i-1] + (voucherEntryList.get(i).getTable2AmountDr() - voucherEntryList.get(i).getTable2AmountCr());
+                                    currentBalance[i] = currentBalance[i - 1] + (voucherEntryList.get(i).getTable2AmountDr() - voucherEntryList.get(i).getTable2AmountCr());
                             }
 
                             adapterForLedgerReport = new ArrayAdapterForLedgerReport(LedgerReport.this, voucherEntryList, currentBalance);
                             listLedger.setAdapter(adapterForLedgerReport);
-                            txtClosingBalance.setText(String.valueOf(currentBalance[voucherEntryList.size()-1]));
+                            txtClosingBalance.setText(String.valueOf(currentBalance[voucherEntryList.size() - 1]));
 
                             Utility.setListViewHeightBasedOnChildren(listLedger);
                             Log.e("OK Mamun", "Adapter working well");
@@ -305,7 +304,7 @@ public class LedgerReport extends AppCompatActivity {
 
 
                 }
-                }
+            }
 
 
         });
@@ -345,13 +344,13 @@ public class LedgerReport extends AppCompatActivity {
 
                     date = String.valueOf(year) + "/" + selectedMonth + "/" + selectedDay;
                     txtFromDate.setText(FormatDate.getDateToShow(date));
-                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0){
+                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0) {
 
                         txtFromDate.setTextColor(Color.RED);
                         txtToDate.setTextColor(Color.WHITE);
 
 
-                    }else{
+                    } else {
                         txtFromDate.setTextColor(Color.WHITE);
                         txtToDate.setTextColor(Color.WHITE);
 
@@ -384,19 +383,17 @@ public class LedgerReport extends AppCompatActivity {
 
                     txtToDate.setText(FormatDate.getDateToShow(date));
 
-                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0){
+                    if (FormatDate.getDateToSave(txtFromDate.getText().toString()).compareTo(FormatDate.getDateToSave(txtToDate.getText().toString())) > 0) {
 
                         txtFromDate.setTextColor(Color.RED);
                         txtToDate.setTextColor(Color.WHITE);
 
 
-                    }else{
+                    } else {
                         txtFromDate.setTextColor(Color.WHITE);
                         txtToDate.setTextColor(Color.WHITE);
 
                     }
-
-
 
 
                 }
@@ -410,8 +407,24 @@ public class LedgerReport extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_all_transaction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        } else if (id == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

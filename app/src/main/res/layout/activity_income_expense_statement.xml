@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:gravity="right"
-                    android:text="Amount"
+                    android:text="@string/column_heading_amount"
                     android:textColor="#ffffff"/>
 
             </LinearLayout>
@@ -251,7 +251,7 @@
                 android:background="#4A97AB"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Total Amount"
+                android:text="@string/column_heading_total_amount"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:visibility="gone"/>
