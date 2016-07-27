@@ -103,7 +103,7 @@
                     android:background="#FF02A82F"
                     android:text="@string/lblAccTo"
                     android:textColor="#ffffff"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <Spinner
                     android:id="@+id/spnAccountTo"
@@ -133,9 +133,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_bank_cheque"
-                android:inputType="text"
-                android:padding="7dp" />
+                android:inputType="text"/>
 
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkIsPending"
+                android:text="Is Pending?"
+                android:padding="10dp"
+                android:onClick="chkIsPendingOnClick"/>
 
             <Button
                 android:id="@+id/btnSave"
@@ -148,11 +154,10 @@
         </LinearLayout>
     </ScrollView>
 
-
     <ListView
         android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:id="@+id/drawarList"
+        android:id="@+id/drawerList"
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:choiceMode="singleChoice"

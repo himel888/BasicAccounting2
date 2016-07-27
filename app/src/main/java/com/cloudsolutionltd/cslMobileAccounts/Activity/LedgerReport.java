@@ -86,7 +86,7 @@ public class LedgerReport extends AppCompatActivity {
         // mTitle  = mDrawerTitle = getTitle();
 
         navigationMenu = (DrawerLayout) findViewById(R.id.navigationMenu);
-        drawerList = (ListView) findViewById(R.id.drawarList);
+        drawerList = (ListView) findViewById(R.id.drawerList);
 
         // Set the drawer toggle as the DrawerListener
         navigationMenu.setDrawerListener(mDrawerToggle);

@@ -68,11 +68,12 @@ public class AllTransaction extends AppCompatActivity {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#8cce64")));
 
+
         item = getResources().getStringArray(R.array.drawer_list);
         // mTitle  = mDrawerTitle = getTitle();
 
         navigationMenu = (DrawerLayout) findViewById(R.id.navigationMenu);
-        drawerList = (ListView) findViewById(R.id.drawarList);
+        drawerList = (ListView) findViewById(R.id.drawerList);
 
         // Set the drawer toggle as the DrawerListener
         navigationMenu.setDrawerListener(mDrawerToggle);
@@ -101,6 +102,7 @@ public class AllTransaction extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         // Setting event listener for the drawer
         navigationMenu.setDrawerListener(mDrawerToggle);
 

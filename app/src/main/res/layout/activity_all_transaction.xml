@@ -176,7 +176,7 @@
     <ListView
         android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:id="@+id/drawarList"
+        android:id="@+id/drawerList"
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:choiceMode="singleChoice"

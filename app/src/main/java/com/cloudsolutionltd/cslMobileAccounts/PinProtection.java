@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by csl on 6/25/16.
+ * Created by Kazi Abdullah Al Mamun on 6/25/16.
+ *
  */
 public class PinProtection {
 
@@ -29,14 +30,31 @@ public class PinProtection {
         pinHint = sharedPreferences.getString(PIN_HINT, null);
     }
 
+
+    /**
+     * Check that application is protected or not.
+     * @return true if application is protected.
+     */
     public boolean isApplicationProtected() {
         return isApplicationProtected;
     }
 
+
+    /**
+     * Get pin from SharedPreferences
+     * which will use to log in purpose.
+     * @return 4 digit log in pin.
+     */
     public String getApplicationPin() {
         return applicationPin;
     }
 
+
+    /**
+     * Fetch pin hint from SharedPreferences
+     * and return to user.
+     * @return the pin hint.
+     */
     public String getPinHint() {
         return pinHint;
     }

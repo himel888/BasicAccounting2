@@ -15,9 +15,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +44,7 @@ public class VoucherEntry extends AppCompatActivity {
     TextView txtDate;
     Spinner spnAccountFrom, spnAccountTo;
     Button btnSave;
+    CheckBox chkIsPending;
 
     //Declare variable and adapter for spinner
     String[][] accountNameId;
@@ -57,6 +60,7 @@ public class VoucherEntry extends AppCompatActivity {
     ArrayAdapter menuListAdapter;
     ActionBarDrawerToggle mDrawerToggle;
     String[] item;
+    private String transactionType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +71,11 @@ public class VoucherEntry extends AppCompatActivity {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF2373C7")));
 
+        transactionType = null;
         item = getResources().getStringArray(R.array.drawer_list);
 
         navigationMenu = (DrawerLayout) findViewById(R.id.navigationMenu);
-        drawerList = (ListView) findViewById(R.id.drawarList);
+        drawerList = (ListView) findViewById(R.id.drawerList);
 
         // Set the drawer toggle as the DrawerListener
         navigationMenu.setDrawerListener(mDrawerToggle);
@@ -232,6 +237,7 @@ public class VoucherEntry extends AppCompatActivity {
                         table.setTable2AmountCr(Double.parseDouble(txtAmount.getText().toString()));
                         table.setTable2Description(txtDescription.getText().toString());
                         table.setTable2BankCheque(txtBankCheque.getText().toString());
+                        table.setTable2Transaction_type(transactionType);
 
                         long result = crud.insert(table);
                         if (result >= 0) {
@@ -272,6 +278,13 @@ public class VoucherEntry extends AppCompatActivity {
         spnAccountFrom = (Spinner) findViewById(R.id.spnAccountFrom);
         spnAccountTo = (Spinner) findViewById(R.id.spnAccountTo);
         btnSave = (Button) findViewById(R.id.btnSave);
+        chkIsPending = (CheckBox) findViewById(R.id.chkIsPending);
+    }
+
+    //CheckBox chkIsPending Click Listener
+    public void chkIsPendingOnClick(View view){
+        if (chkIsPending.isChecked())
+            transactionType = "pending";
     }
 
 
